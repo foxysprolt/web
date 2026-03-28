@@ -36,46 +36,112 @@ header .logo{
 }
 body{
     padding-top: 3rem;
-    background: url(/img/fundo2.png);
+    background: url(img/fundo2.png);
     background-size: cover;
     background-position: center;
      background-repeat: no-repeat;
      min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    }
+main{
+    flex:1;
 }
 .home h1{
     color: #ff7a1a;
     text-align: center;
     font-size: 200px;
 }
-.home p{
-    color: #f5e6c8; 
-    text-align: left;
-    font-size: 25px;
-}
-.projects {
+.projects h2{
+    color:  #ff6e2b; 
     font-weight: 600;
+    font-size: 25px;
+    width: 100%;
     text-align: center;
 }
 .container-projects {
-    text-align: center;
-    align-items: center;
     display: flex;
     margin-top: 50px;
-    gap: 100px;
+    gap: 200px;
     justify-content: center;
 }
 .form-project {
-    width: 300px;
-    height: 300px;
-    background-color: rgba(245, 230, 200, 0.9);
-    color: #1f3d2b;
-    text-align: center;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 350px;
+    height: 350px;
+    background-color: rgba(31, 61, 43, 0.7); /* fundo mais escuro e visível */
+    color: #ff7a1a; /* cor do texto */
+    box-shadow: rgba(0,0,0,0.25) 0px 10px 20px;
     border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.3s; /* para hover suave */
+    cursor: pointer; /* indica que é clicável */
+}
+.container-projects a{
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 40px;
 }
 .form-project:hover{
-    transition: 0.25s;
+a    text-decoration: underline;
+    transform: translateY(-5px);
+    transition: 0.4s;
+    font-size: 50px;
     background-color: transparent;
     backdrop-filter: blur(5px);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.about{
+
+}
+.about p{
+    font-size: 150px;
+    text-align: center;
+    margin-top: 7rem;
+    color: #ff7a1a;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    font-weight: 300;
+    background-color: rgba(31, 61, 43, 0.6);
+    border-radius: 10px 10px 0 0;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    backdrop-filter: blur(5px);
+    text-align: center;
 }
