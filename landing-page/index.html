@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Foxysprolty">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="/img/log.png">
+    <title>page login</title>
+</head>
+<body>
+    <header>
+        <a href="/index.html">
+            back
+        </a>
+    </header>
+    <main class="container">
+        <form>
+            <h1>login</h1>
+            <div class="input-box">
+                <input type="email" name="email-usuario" id="user" placeholder="Usuário">
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="senha" id="senha" placeholder="senha">
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div class="remember-forgot">
+                <label> 
+                    <input type="checkbox">
+                    Lembrar senha
+                </label>
+                <a href="esqsenha.html">Esqueci senha</a>
+            </div>
+
+            <button type="submit" class="login" onclick="alert('PAGINA EM DESENVOLVIMENTO')"> Login </button>
+            <div class="reg">
+                <p>Não tem uma conta? <a href="cadastrar.html">Cadastre-se</a></p>
+            </div>
+        </form>
+
+    </main>
+    
+        <audio id="bg-music" loop>
+    <source src="music/fundo.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Botão play/pause -->
+<button id="music-btn" onclick="
+    const audio=document.getElementById('bg-music');
+    const btn=this;
+    if(audio.paused){
+        audio.play();
+        audio.volume = 0.01;
+        btn.textContent='⏸ Pause Music';
+    } else {
+        audio.pause();
+        btn.textContent='▶ Play Music';
+    }
+">▶ Play music</button>
+</html>
