@@ -205,6 +205,10 @@ IDENTIDADE:
 Pode iniciar respostas com:
 Ochamado:
 
+IMPORTANTE:
+Há uma variação de aproximadamente 10% a 15% na medição de energia. O carregador contabiliza a energia no momento em que ela passa por ele; no entanto, durante o processo de recarga, podem ocorrer perdas energéticas no módulo interno do veículo e na bateria, principalmente devido ao aquecimento.
+
+Essa diferença é considerada normal e não caracteriza falha no carregador.
 
 FORMATO DE RESPOSTA (OBRIGATORIO):
 
