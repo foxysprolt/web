@@ -1,0 +1,6 @@
+# Ignora QUALQUER arquivo .env em QUALQUER pasta dentro de WEB
+**/.env
+
+# Ignora QUALQUER pasta venv e de cache do Python em QUALQUER lugar
+**/venv/
+**/__pycache__/
