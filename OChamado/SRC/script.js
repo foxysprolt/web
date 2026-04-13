@@ -4,8 +4,8 @@ let botao = document.querySelector(".botao-ajuda")
 let input = document.querySelector(".caixa-texto")
 let chat = document.querySelector("#chat")
 
-// Endereço do seu "Garçom" Python
-let urlServidor = "http://127.0.0.1:5000/chat"
+// Endereço do seu "Garçom" Python no Render
+let urlServidor = "https://ochamadochat.onrender.com/chat"
 
 let historico = [
     {
@@ -16,7 +16,9 @@ let historico = [
         role: "assistant",
         content: "Olá! Antes de começarmos, você é um Cliente ou um Funcionário da Power2Go?"
     }
+    // ❌ Removi a palavra "web" que estava sobrando aqui e quebrando o código
 ];
+
 window.onload = () => {
     adicionarMensagem("Olá! Antes de começarmos, você é um Cliente ou um Funcionário da Power2Go?", "bot");
 };
@@ -25,6 +27,7 @@ window.onload = () => {
 function adicionarMensagem(texto, tipo) {
     let div = document.createElement("div")
     div.classList.add("msg", tipo)
+    // Substitui quebras de linha por <br> para o HTML entender
     div.innerHTML = texto.replace(/\n/g, "<br>")
     chat.appendChild(div)
     
@@ -39,16 +42,14 @@ async function enviarMensagem() {
 
     // Adiciona sua mensagem na tela
     adicionarMensagem(texto, "user")
-    historico.push({ role: "user", content: texto }); // <--- Memória guardada!
+    historico.push({ role: "user", content: texto }); 
     
-    // Limpa o campo de texto
     input.value = ""
 
     // Adiciona o balão de carregamento
     adicionarMensagem("Ochamado: analisando...", "bot")
 
     try {
-        // Faz o pedido para o Flask
         let resposta = await fetch(urlServidor, {
             method: "POST",
             headers: {
@@ -58,27 +59,26 @@ async function enviarMensagem() {
         })
 
         if (!resposta.ok) {
-            throw new Error("Erro no servidor Python: " + resposta.status)
+            throw new Error("Erro no servidor: " + resposta.status)
         }
 
         let dados = await resposta.json()
         
         // Remove o balão de "analisando..."
-        chat.lastChild.remove()
+        if (chat.lastChild) chat.lastChild.remove();
 
-        // Mostra a resposta da IA
         let resultado = dados.resposta 
         adicionarMensagem(resultado, "bot")
-        historico.push({ role: "assistant", content: resultado }); // <--- IA guardada na memória!
+        historico.push({ role: "assistant", content: resultado });
 
     } catch (erro) {
         if (chat.lastChild) chat.lastChild.remove();
         adicionarMensagem("Erro: Falha na comunicação com o cérebro.", "bot");
-        console.error(erro);
+        console.error("Erro detalhado:", erro);
     }
 }
 
-// 3. GATILHOS (EVENT LISTENERS) - SEM ISSO O BOTÃO NÃO FUNCIONA!
+// 3. GATILHOS
 botao.addEventListener("click", enviarMensagem)
 
 input.addEventListener("keydown", function(e) {
