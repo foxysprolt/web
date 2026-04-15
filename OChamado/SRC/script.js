@@ -5,7 +5,7 @@ let input = document.querySelector(".caixa-texto")
 let chat = document.querySelector("#chat")
 
 // Endereço do seu "Garçom" Python no Render
-let urlServidor = "https://ochamadochat.onrender.com/chat"
+let urlServidor = "https://southamerica-east1-ochamado-ia.cloudfunctions.net/chat_ochamado"
 
 let historico = [
     {
