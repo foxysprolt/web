@@ -7,19 +7,6 @@ from groq import Groq
 # Você vai passar a chave no comando de deploy
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-def obter_instrucoes():
-    """Lê as instruções do seu arquivo promptia.py"""
-    caminho = os.path.join(os.path.dirname(__file__), 'promptia.py')
-    if os.path.exists(caminho):
-        try:
-            with open(caminho, 'r', encoding='utf-8') as f:
-                conteudo = f.read()
-                # Limpa sujeira de código se houver
-                return conteudo.replace('INSTRUCAO_SISTEMA =', '').replace('"""', '').strip()
-        except:
-            pass
-    return "Você é o Ochamado, especialista da Power2Go."
-
 @functions_framework.http
 def chat_ochamado(request):
     # CORS
