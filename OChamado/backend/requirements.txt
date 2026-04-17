@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 functions-framework
 groq
-=======
-flask
-flask-cors
-google-genai
-python-dotenv
-gunicorn
-=======
->>>>>>> bfb0246 (commit)
-functions-framework
-google-genai
->>>>>>> c6112c1 (commit)
 flask
