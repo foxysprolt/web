@@ -1,0 +1,42 @@
+@import url('../components/color.css');
+
+.hero {
+    background: url(../../assets/img/backhero.png) center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    padding: 200px 50px 300px 75px;
+
+}
+.hero h3, button {
+    margin: 20px 0;
+}
+.hero h2 {
+    font-size: 3rem;
+/*    background: linear-gradient(42deg, #BF953F, #FCF6BA, #c2973b, #FBF5B7, #AA771C); */
+    background: #ffdb76;
+  -webkit-background-clip: text; /* Corta o fundo no formato das letras */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+}
+.hero h3 {
+    font-size: 1.75rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+.hero button {
+    width: 300px;
+    padding: 5px 10px;
+    font-size: 2rem;
+    background: #ddaa3b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 10px;
+}
+.hero button:hover {
+    background: #d89f23;
+}

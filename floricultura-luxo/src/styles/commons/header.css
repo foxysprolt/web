@@ -1,0 +1,79 @@
+/* ============================================================
+   2. ESTADO NORMAL (TOPO DA PÁGINA)
+   ============================================================ */
+
+header.header-melin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; 
+    background-color: var(--branco-puro) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 1s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: 9999;
+}
+
+.headerlogo {
+    height: 30px;
+    transition: all 1s cubic-bezier(0.65, 0, 0.35, 1);
+    margin-bottom: 15px !important;
+    transform: scale(2.5);
+}
+
+/* MENU CONFIG */
+header.header-melin nav ul {
+    display: flex !important;
+    list-style: none !important;
+    gap: 30px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* CORES FIXAS NO TOPO */
+header.header-melin nav ul li a {
+    text-decoration: none !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: var(--dourado-solido) !important; /* Todos dourados */
+    transition: 0.3s;
+}
+
+/* SÓ O INÍCIO PRETO (FIXO) */
+header.header-melin nav ul li:first-child a {
+    color: var(--texto-preto) !important;
+}
+
+/* ============================================================
+   3. ESTADO AO ROLAR (.rolagem)
+   ============================================================ */
+
+header.header-melin.rolagem {
+    height: 50px;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    padding: 0 5%;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+}
+
+header.header-melin.rolagem .headerlogo {
+    height: 25px;
+    margin-bottom: 0 !important;
+}
+
+/* No scroll, você decide: quer que tudo fique dourado ou continue com o Início preto?
+   Se quiser tudo dourado ao rolar, mantenha assim: */
+header.header-melin.rolagem nav ul li a {
+    color: var(--dourado-solido) !important;
+}
+
+/* HOVER PRETO PRA COMBINAR */
+header.header-melin nav ul li a:hover {
+    color: var(--texto-preto) !important;
+}
