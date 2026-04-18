@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+
+
+
+    /* mexer no header nn esquece */
+    
+.dif{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dif-box{
+    margin-top: 15px;
+}
+
+
+
+
+
+
+}

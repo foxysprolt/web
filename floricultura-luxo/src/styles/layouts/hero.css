@@ -1,43 +1,45 @@
-@import url('../components/color.css');
-
 .hero {
     background: url(../../assets/img/backhero.png) center/cover;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: left;
     color: white;
-    padding-left: 50px;
+    padding: 20px;
+}
 
-}
-.hero h3, button {
-    margin: 20px 0;
-}
 .hero h2 {
-    font-size: 3rem;
-/*    background: linear-gradient(42deg, #BF953F, #FCF6BA, #c2973b, #FBF5B7, #AA771C); */
-    background: #ffdb76;
-  -webkit-background-clip: text; /* Corta o fundo no formato das letras */
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.25);
-}
-.hero h3 {
-    font-size: 1.75rem;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-}
-.hero button {
-    width: 300px;
-    padding: 5px 10px;
     font-size: 2rem;
-    background: #ddaa3b;
-    color: #fff;
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #AA771C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero h3 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.hero button {
+    width: 200px;
+    padding: 10px;
+    font-size: 1rem;
+    background: linear-gradient(45deg, #d4af37, #f7e7a1);
     border: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
     border-radius: 10px;
 }
-.hero button:hover {
-    background: #d89f23;
+
+/* desktop */
+@media (min-width: 768px) {
+    .hero {
+        padding-left: 50px;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+    }
+
+    .hero h3 {
+        font-size: 1.6rem;
+    }
 }

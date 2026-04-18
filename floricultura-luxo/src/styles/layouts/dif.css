@@ -1,19 +1,33 @@
 .dif {
     display: flex;
-    height: 240px;
+    flex-wrap: wrap;
     justify-content: center;
-
+    gap: 30px;
+    padding: 40px 20px;
 }
 
-.dif-box{
+.dif-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 75px;
-
+    max-width: 180px;
+    text-align: center;
 }
 
-.dif-box i{
-
-
+.dif-box i {
+    width: 35px;
+    height: 35px;
+    color: #d4af37;
+    margin-bottom: 10px;
 }
+
+.dif-box h2 {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.dif-box h3 {
+    font-size: 0.8rem;
+    color: #777;
+}
+

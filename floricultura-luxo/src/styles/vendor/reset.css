@@ -52,3 +52,14 @@ h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+section {
+  scroll-margin-top: 110px;
+}
