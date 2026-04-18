@@ -22,11 +22,20 @@
 
 .hero button {
     width: 200px;
+    height: 45px;
     padding: 10px;
     font-size: 1rem;
     background: linear-gradient(45deg, #d4af37, #f7e7a1);
     border: none;
     border-radius: 10px;
+    transition: 0.25s;
+}
+
+.hero button:hover {
+    background: linear-gradient(25deg, #d4ae32, #ffe883);
+    cursor: pointer;
+    transform: scale(1.05);
+
 }
 
 /* desktop */
