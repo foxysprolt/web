@@ -1,14 +1,9 @@
-// Removi o import que pode travar o navegador. 
-// O cérebro lá no Google já tem o promptia.py dentro dele!
-
 let botao = document.querySelector(".botao-ajuda")
 let input = document.querySelector(".caixa-texto")
 let chat = document.querySelector("#chat")
 
-// URL do Google Cloud Functions
 let urlServidor = "https://southamerica-east1-ochamado-ia.cloudfunctions.net/chat_ochamado"
 
-// Começamos o histórico apenas com a saudação inicial
 let historico = [
     {
         role: "assistant",
@@ -20,10 +15,24 @@ window.onload = () => {
     adicionarMensagem("Olá! Antes de começarmos, você é um Cliente ou um Funcionário da Power2Go?", "bot");
 };
 
+// NOVA FUNÇÃO PARA IDENTIFICAR LINKS E TORNÁ-LOS CLICÁVEIS
+function formatarLinks(texto) {
+    // Procura links que começam com http ou https
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return texto.replace(urlRegex, function(url) {
+        // Retorna o link envolvido na tag <a> para o HTML entender
+        return `<a href="${url}" target="_blank" class="link-chat">${url}</a>`;
+    });
+}
+
 function adicionarMensagem(texto, tipo) {
     let div = document.createElement("div")
     div.classList.add("msg", tipo)
-    div.innerHTML = texto.replace(/\n/g, "<br>")
+    
+    // Primeiro formatamos os links, depois trocamos as quebras de linha
+    let textoFormatado = formatarLinks(texto);
+    div.innerHTML = textoFormatado.replace(/\n/g, "<br>")
+    
     chat.appendChild(div)
     chat.scrollTop = chat.scrollHeight
 }
@@ -33,7 +42,6 @@ async function enviarMensagem() {
     if (!texto) return
 
     adicionarMensagem(texto, "user")
-    // Adiciona ao histórico local
     historico.push({ role: "user", content: texto }); 
     
     input.value = ""
@@ -43,15 +51,12 @@ async function enviarMensagem() {
         const response = await fetch(urlServidor, {
             method: "POST",
             headers: {
-                // Aqui é onde o Google exige que esteja perfeito
                 "Content-Type": "application/json"
             },
-            // Enviamos apenas o histórico de mensagens
             body: JSON.stringify({ historico: historico }) 
         })
 
         if (!response.ok) {
-            // Se der erro, vamos tentar ler o que o Python respondeu
             const erroCorpo = await response.json();
             throw new Error(erroCorpo.erro || "Erro desconhecido");
         }
