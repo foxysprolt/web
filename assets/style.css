@@ -1,0 +1,121 @@
+:root {
+    --green: #10b981;
+    --dark-green: #065f46;
+    --dark: #111827;
+    --light: #f3f4f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+body { background: #fff; color: var(--dark); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+header { background: white; padding: 20px 0; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 24px; font-weight: 800; }
+.logo span { color: var(--green); }
+nav a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 600; font-size: 14px; transition: 0.3s; }
+nav a:hover { color: var(--green); }
+
+/* Hero Banner */
+.hero-banner { 
+    background: url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2000') no-repeat center center/cover;
+    height: 500px;
+}
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.hero-content { max-width: 600px; color: white; }
+.hero-content h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+.hero-content p { font-size: 18px; margin-bottom: 30px; }
+.btn-main { background: var(--green); color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+
+/* ODS Section - IMAGEM EM CIMA FIXA, TEXTO EMBAIXO */
+.ods-detail { padding: 60px 0; background: var(--light); text-align: center; }
+
+.ods-grid { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;    
+    gap: 30px; 
+}
+
+.ods-brand img { 
+    width: 650px; 
+    height: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+.ods-info { 
+    max-width: 800px; 
+    text-align: center;
+}
+
+.ods-info h2 { font-size: 36px; color: var(--dark-green); margin-bottom: 20px; }
+.ods-info p { margin-bottom: 15px; font-size: 18px; line-height: 1.7; color: #4b5563; }
+
+/* Simulator */
+.simulator-section { padding: 80px 0; }
+.simulator-wrapper { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); border: 1px solid #f3f4f6; max-width: 800px; margin: 0 auto; }
+.sim-header { text-align: center; margin-bottom: 40px; }
+.sim-body { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.simulator-card { background: white; max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+.card-desc { color: #6b7280; text-align: center; margin-bottom: 30px; }
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 14px; }
+.input-group input { width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 10px; outline: none; }
+.input-group input:focus { border-color: var(--green); }
+button { width: 100%; padding: 18px; background: var(--dark); color: white; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; transition: 0.3s; }
+button:hover { background: var(--green); }
+
+/* Results */
+.result-area { display: none; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+.res-box { background: #f0f9ff; padding: 25px; border-radius: 15px; text-align: center; border-left: 4px solid var(--green); }
+.res-box strong { display: block; font-size: 22px; color: var(--green); }
+
+/* Technology Grid */
+.tech-section { padding: 80px 0; background: var(--dark); color: white; }
+.tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.tech-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; }
+.tech-card h3 { color: var(--green); margin-bottom: 15px; }
+
+footer { text-align: center; padding: 40px; background: #eee; font-size: 13px; font-weight: 600; }
+
+@media (max-width: 768px) {
+    .tech-grid { grid-template-columns: 1fr; }
+    .ods-brand img { width: 250px; }
+}
+
+
+.hero-content {
+    max-width: 700px;
+    color: white;
+    margin: 0 auto;       /* Garante que o bloco de conteúdo fique centrado */
+    text-align: center;   /* Centraliza o texto e botões dentro do bloco */
+}
+
+.btn-main { 
+    background: var(--green); 
+    color: white; 
+    padding: 15px 35px; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    display: inline-block; /* Permite centralização correta com text-align */
+    margin: 0 auto;        /* Alinha o botão ao centro */
+    transition: all 0.3s ease; /* Cria o efeito de transição suave para o hover */
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Efeito Hover (Quando o mouse passa por cima do botão) */
+.btn-main:hover { 
+    background: var(--dark-green); /* Muda para o verde escuro */
+    transform: translateY(-3px);   /* Faz o botão subir de leve dando efeito 3D */
+    box-shadow: 0 6px 20px rgba(6, 95, 70, 0.4); /* Aumenta a sombra */
+}

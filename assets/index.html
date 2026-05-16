@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltWay | Solução Web ODS 7</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Volt<span>Way</span></div>
+            <nav>
+                <a href="#ods">ODS 7</a>
+                <a href="#simulador">Calculadora</a>
+                <a href="#tecnologia">Tecnologia</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>VOLTWAY: ACELERANDO A TRANSIÇÃO SUSTENTÁVEL</h1>
+                    <p>Uma plataforma inteligente para reduzir a incerteza do consumidor e promover o acesso à energia limpa.</p>
+                    <a href="#simulador" class="btn-main">INICIAR SIMULAÇÃO</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ods" class="ods-detail">
+        <div class="container">
+            <div class="ods-grid">
+                <div class="ods-brand">
+                    <img src="img/ods7.webp" alt="ODS 7 Energia Limpa">
+                </div>
+                <div class="ods-info">
+                    <h2>Alinhamento com a ODS 7 (ONU)</h2>
+                    <p>Este projeto foi desenvolvido como uma solução de <strong>TIC (Tecnologia da Informação e Comunicação)</strong> para apoiar o Objetivo de Desenvolvimento Sustentável 7.</p>
+                    <p>Segundo a <strong>Agência Internacional de Energia (2023)</strong>, a falta de informação clara é uma das maiores barreiras para a mobilidade elétrica. O VoltWay ataca este problema fornecendo dados precisos sobre economia e redução de emissões.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="simulador" class="simulator-section">
+        <div class="container">
+            <div class="simulator-card">
+                <h2>Calculadora de Impacto</h2>
+                <p class="card-desc">Simulação baseada em algoritmos de eficiência energética.</p>
+                <div class="input-group">
+                    <label>Distância Mensal (km)</label>
+                    <input type="number" id="km" placeholder="Ex: 1500">
+                </div>
+                <div class="input-group">
+                    <label>Preço da Gasolina (R$/L)</label>
+                    <input type="number" id="preco" step="0.01" placeholder="Ex: 5.85">
+                </div>
+                <button onclick="calcular()">GERAR RELATÓRIO DE IMPACTO</button>
+                
+                <div id="resultado" class="result-area">
+                    <div class="res-box">
+                        <small>Economia Mensal</small>
+                        <strong id="res-fin">R$ 0,00</strong>
+                    </div>
+                    <div class="res-box">
+                        <small>CO₂ Evitado (kg)</small>
+                        <strong id="res-eco">0 kg</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnologia" class="tech-section">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom: 40px;">Diferenciais do Desenvolvimento</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>Arquitetura Responsiva</h3>
+                    <p>Interface desenvolvida com foco em acessibilidade e flexibilidade, garantindo usabilidade em qualquer dispositivo.</p>
+                </div>
+                <div class="tech-card">
+                    <h3>Cálculo em Tempo Real</h3>
+                    <p>Processamento dinâmico via JavaScript local para feedback imediato e precisão ao usuário.</p>
+                </div>
+                <div class="tech-card">
+                    <h3>Sustentabilidade Digital</h3>
+                    <p>Código limpo, estruturado e otimizado para baixo consumo de processamento e carregamento rápido.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>UNIP 2024 - Projeto Integrador I - Aluno Solista</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
