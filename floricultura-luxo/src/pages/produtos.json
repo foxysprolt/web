@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nome": "Buquê de 12 Rosas Vermelhas",
+    "preco": "R$ 150,00",
+    "imagem": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=400",
+    "link": "https://wa.me/5511999999999?text=Quero%20o%20Buque%20de%20Rosas"
+  },
+  {
+    "id": 2,
+    "nome": "Orquídea Phalaenopsis Branca",
+    "preco": "R$ 120,00",
+    "imagem": "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?w=400",
+    "link": "https://wa.me/5511999999999?text=Quero%20a%20Orquidea"
+  },
+  {
+    "id": 3,
+    "nome": "Cesta de Café com Flores",
+    "preco": "R$ 210,00",
+    "imagem": "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=400",
+    "link": "https://wa.me/5511999999999?text=Quero%20a%20Cesta"
+  }
+]

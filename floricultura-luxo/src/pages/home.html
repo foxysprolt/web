@@ -9,17 +9,103 @@
 </head>
 
 <body class="loading">
+
+
 <header class="header-melin">
-    <img src="../assets/img/logo1.svg" class="headerlogo">
+  <div class="header-container">
+    
+    <!-- LOGO -->
+    <a href="#inicio" class="logo-link">
+      <img src="../assets/img/logo1.svg" class="headerlogo" alt="Melin Flores">
+    </a>
+
+    <!-- MENU DE NAVEGAÇÃO -->
     <nav>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#wrapper">Coleções</a></li>
-          <li><a href="#wrapper">Best sellers</a></li>
-          <li><a href="#map">Contato</a></li>
-        </ul>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#wrapper">Coleções</a></li>
+        <li><a href="#wrapper">Best sellers</a></li>
+        <li><a href="#map">Contato</a></li>
+      </ul>
     </nav>
+
+    <!-- BARRA DE PESQUISA COM DROPDOWN (Á DIREITA) -->
+    <div class="search-box">
+      <input type="text" id="campo-pesquisa" placeholder="Pesquisar flores..." onkeyup="filtrarProdutos()">
+      <div id="catalogo-produtos" class="resultados-dropdown"></div>
+    </div>
+
+  </div>
 </header>
+
+<script>
+  let todosOsProdutos = [];
+
+  // 1. Carrega o arquivo JSON com os produtos
+  fetch('produtos.json')
+    .then(response => response.json())
+    .then(data => {
+      todosOsProdutos = data;
+    })
+    .catch(error => console.error('Erro ao carregar produtos:', error));
+
+  // 2. Desenha os cards no mini dropdown
+  function exibirProdutos(produtos) {
+    const container = document.getElementById('catalogo-produtos');
+    container.innerHTML = '';
+
+    if (produtos.length === 0) {
+      container.innerHTML = '<p style="font-size:12px; color:#888; text-align:center; padding:10px;">Nenhum produto encontrado.</p>';
+      return;
+    }
+
+    produtos.forEach(prod => {
+      const card = `
+        <div class="card-produto-mini">
+          <img src="${prod.imagem}" alt="${prod.nome}">
+          <div class="card-produto-info">
+            <h4>${prod.nome}</h4>
+            <p class="preco">${prod.preco}</p>
+          </div>
+          <a href="${prod.link}" target="_blank" class="btn-pedir-mini">Pedir</a>
+        </div>
+      `;
+      container.innerHTML += card;
+    });
+  }
+
+  // 3. Filtra ao digitar
+  function filtrarProdutos() {
+    const termo = document.getElementById('campo-pesquisa').value.toLowerCase().trim();
+    const container = document.getElementById('catalogo-produtos');
+
+    if (termo === '') {
+      container.innerHTML = '';
+      return;
+    }
+
+    const produtosFiltrados = todosOsProdutos.filter(prod => 
+      prod.nome.toLowerCase().includes(termo)
+    );
+    exibirProdutos(produtosFiltrados);
+  }
+
+  // 4. Fecha ao clicar fora
+  document.addEventListener('click', function(event) {
+    const searchBox = document.querySelector('.search-box');
+    const container = document.getElementById('catalogo-produtos');
+    
+    if (searchBox && !searchBox.contains(event.target)) {
+      container.innerHTML = '';
+      document.getElementById('campo-pesquisa').value = '';
+    }
+  });
+</script>
+</header>
+
+
+
+
 
 <section id="inicio" class="hero">
     <h2>Transforme momentos <br>em memórias</h2>
