@@ -1,0 +1,823 @@
+/* ==========================================
+   AGÊNCIA DESPERTAR — ESTILOS COMPLETO
+   ========================================== */
+
+/* IMPORTAÇÃO DAS FONTES OFICIAIS DO MANUAL DA MARCA */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap');
+
+/* VARIÁVEIS OFICIAIS */
+:root {
+  /* PALETA DE CORES */
+  --laranja-principal: #FF6A00; /* Laranja Vibrante */
+  --azul-escuro-bg: #0D1B2A;    /* Fundo Escuro Principal */
+  --preto-secundario: #111B27; /* Fundo de Cards/Seções */
+  --branco-puro: #FFFFFF;        /* Textos Principais */
+  --cinza-claro: #F3F4F6;        /* Detalhes e destaques */
+  --text-muted: #9CA3AF;         /* Parágrafos suaves */
+  --border-color: #1E293B;       /* Bordas dos cards */
+
+  /* TIPOGRAFIA */
+  --font-titulos: 'Montserrat', sans-serif;
+  --font-textos: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--azul-escuro-bg);
+  color: var(--branco-puro);
+  font-family: var(--font-textos);
+  line-height: 1.6;
+}
+
+/* TÍTULOS E DESTAQUES USAM MONTSERRAT */
+h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
+  font-family: var(--font-titulos);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* LOGO */
+.logo {
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--branco-puro);
+  display: flex;
+  align-items: center;
+}
+
+.logo-bold {
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.logo-dot {
+  color: var(--laranja-principal);
+  font-weight: 900;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(13, 27, 42, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+  padding: 18px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-menu a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+  color: var(--laranja-principal);
+}
+
+.btn-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: transparent;
+  color: var(--laranja-principal);
+  border: 1px solid var(--laranja-principal);
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-nav:hover {
+  background-color: var(--laranja-principal);
+  color: var(--branco-puro);
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 180px 0 90px 0;
+}
+
+.badge-hero {
+  display: inline-block;
+  background-color: rgba(255, 106, 0, 0.1);
+  color: var(--laranja-principal);
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  max-width: 900px;
+  margin-bottom: 8px;
+}
+
+.hero h1 .highlight {
+  color: var(--laranja-principal);
+}
+
+.slogan-marca {
+  font-size: 15px;
+  color: var(--laranja-principal);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.hero-descricao {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--laranja-principal);
+  color: var(--branco-puro);
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 4px 20px rgba(255, 106, 0, 0.35);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #E05D00;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 24px;
+  transition: color 0.2s;
+}
+
+.btn-secondary:hover {
+  color: var(--branco-puro);
+}
+
+/* NÚMEROS / IMPACTO */
+.numeros {
+  background-color: var(--preto-secundario);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 50px 0;
+}
+
+.grid-numeros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.card-numero h2 {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--laranja-principal);
+  letter-spacing: -1px;
+}
+
+.card-numero p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* MANIFESTO */
+.manifesto {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.grid-manifesto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .grid-manifesto {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+  }
+}
+
+.manifesto-texto h2 {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+.manifesto-descricao p {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* CABEÇALHO DE SEÇÕES */
+.secao-cabecalho {
+  margin-bottom: 45px;
+}
+
+.secao-cabecalho .subtitulo {
+  font-size: 12px;
+  color: var(--laranja-principal);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.secao-cabecalho h2 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* CASES DE SUCESSO */
+.cases {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-case {
+  background-color: var(--preto-secundario);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 900px) {
+  .card-case {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.case-categoria {
+  font-size: 12px;
+  color: var(--laranja-principal);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.case-info h3 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.case-info p {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.case-metricas {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.metrica-item h4 {
+  font-size: 24px;
+  color: var(--branco-puro);
+  font-weight: 800;
+}
+
+.metrica-item span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.btn-case {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--laranja-principal);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.case-preview {
+  background-color: var(--azul-escuro-bg);
+  border-radius: 12px;
+  border: 1px dashed var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+}
+
+.preview-box {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.preview-box i {
+  font-size: 48px;
+  color: var(--laranja-principal);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ==========================================
+   SEÇÃO DE PLANOS & SERVIÇOS (4 COLUNAS EM 1 LINHA)
+   ========================================== */
+.servicos {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.grid-servicos {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 coluna no celular */
+  gap: 20px;
+  align-items: stretch; /* Alinha todos os cards para terem a mesma altura */
+}
+
+/* TELAS GRANDES / COMPUTADOR: FORÇA 4 COLUNAS NA MESMA LINHA */
+@media (min-width: 1024px) {
+  .grid-servicos {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ESTILO BASE DO CARD DE PLANO */
+.card-servico {
+  background-color: var(--preto-secundario);
+  border: 1px solid var(--border-color);
+  padding: 28px 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.card-servico:hover {
+  border-color: var(--laranja-principal);
+  transform: translateY(-4px);
+}
+
+.numero-servico {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--laranja-principal);
+  margin-bottom: 8px;
+  display: block;
+  text-transform: uppercase;
+}
+
+.card-servico h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card-servico p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* PREÇO DOS PLANOS */
+.preco-plano {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--laranja-principal);
+  margin: 10px 0 14px 0;
+}
+
+.preco-plano span {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 400;
+  display: block;
+}
+
+/* LISTA DE RECURSOS */
+.lista-recursos {
+  list-style: none;
+  margin: 16px 0 24px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.lista-recursos li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.35;
+}
+
+.lista-recursos li i {
+  font-size: 16px;
+  color: var(--laranja-principal);
+  flex-shrink: 0;
+}
+
+/* CARD DESTAQUE (MAIS VENDIDO) */
+.destaque-plano {
+  border-color: var(--laranja-principal) !important;
+  box-shadow: 0 8px 30px rgba(255, 106, 0, 0.15);
+}
+
+.badge-destaque {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--laranja-principal);
+  color: var(--branco-puro);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   AJUSTE DE LOGO EM ALTA RESOLUÇÃO (2000x2000)
+   ========================================== */
+
+/* Logo do Header Fixo */
+.logo-img {
+  height: 65px; /* Define a altura visível perfeita na barra */
+  width: auto;  /* Mantém a proporção quadrada sem achatar */
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.04);
+}
+
+/* Logo do Footer */
+.logo-img-footer {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+/* CARD CUSTOMIZADO */
+.card-customizado {
+  background-color: rgba(255, 106, 0, 0.02) !important;
+  border: 1px dashed var(--laranja-principal) !important;
+}
+
+.btn-secondary-custom {
+  background-color: var(--azul-escuro-bg);
+  color: var(--branco-puro);
+  border: 1px solid var(--border-color);
+  padding: 10px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  display: block;
+  margin-top: auto;
+}
+
+.btn-secondary-custom:hover {
+  border-color: var(--laranja-principal);
+  color: var(--laranja-principal);
+}
+
+.card-servico .btn-nav,
+.card-servico .btn-primary {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* REMOVE O SUBLINHADO E COR DE LINK VISITADO NA DEMONSTRAÇÃO TÉCNICA */
+.preview-box-link {
+  text-decoration: none !important;
+  color: inherit !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+
+.preview-box-link span {
+  color: var(--branco-puro) !important;
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+  margin-top: 8px;
+}
+
+.preview-box-link small {
+  color: var(--laranja-principal) !important;
+  text-decoration: none !important;
+}
+
+.preview-box-link:hover .preview-box i {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* VALORES */
+.valores {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.grid-valores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.card-valor {
+  background-color: var(--preto-secundario);
+  border: 1px solid var(--border-color);
+  padding: 28px;
+  border-radius: 12px;
+}
+
+.card-valor i {
+  font-size: 32px;
+  color: var(--laranja-principal);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card-valor h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-valor p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* BANNER CTA */
+.cta-banner {
+  padding: 100px 0;
+}
+
+.box-cta {
+  background: linear-gradient(135deg, var(--preto-secundario) 0%, var(--azul-escuro-bg) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.box-cta h2 {
+  font-size: 34px;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.box-cta p {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+}
+
+/* FOOTER */
+.footer {
+  background-color: var(--preto-secundario);
+  border-top: 1px solid var(--border-color);
+  padding-top: 60px;
+}
+
+.grid-footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  padding-bottom: 60px;
+}
+
+.coluna-footer p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.coluna-footer h4 {
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: var(--branco-puro);
+}
+
+.coluna-footer ul {
+  list-style: none;
+}
+
+.coluna-footer ul li {
+  margin-bottom: 10px;
+}
+
+.coluna-footer ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+
+
+.coluna-footer ul li a:hover {
+  color: var(--laranja-principal);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding: 24px 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* RESPONSIVO PARA CELULARES */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  .hero {
+    padding: 130px 0 60px 0;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .secao-cabecalho h2 {
+    font-size: 26px;
+  }
+  .logo-img {
+  height: 45px
+  }
+}
+/* GRADE DE CASES */
+.grid-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ESTILO PARA CARD DE NOVO CLIENTE EM BREVE */
+.card-futuro {
+  border-style: dashed !important;
+  opacity: 0.85;
+}
+
+.card-futuro:hover {
+  opacity: 1;
+}
+
+/* CONTAINER PRINCIPAL DO PREVIEW */
+.case-preview-bg {
+  position: relative;
+  /* CAMINHO DA FOTO DE CAPA */
+  background-image: url('preview-melin.jpg'); 
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 260px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CAMADA DE ESCURECIMENTO E BLUR (FICA ATRÁS) */
+.preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 27, 42, 0.55); /* Camada escura */
+  backdrop-filter: blur(3px); /* Efeito Blur */
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1; /* Fica na camada 1 */
+  transition: all 0.3s ease;
+}
+
+/* LINK E TEXTO (FICA NA FRENTE) */
+.preview-box-link {
+  position: relative;
+  z-index: 2; /* Força o texto a ficar por CIMA do overlay (camada 2) */
+  text-decoration: none !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+
+.preview-box {
+  text-align: center;
+}
+
+.preview-box i {
+  font-size: 42px;
+  color: var(--laranja-principal);
+  margin-bottom: 8px;
+  display: block;
+  transition: transform 0.3s ease;  
+}
+
+.preview-box span {
+  color: var(--branco-puro) !important;
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+}
+
+.preview-box small {
+  display: block;
+  color: var(--laranja-principal) !important;
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* EFEITO AO PASSAR O MOUSE (HOVER) */
+.case-preview-bg:hover .preview-overlay {
+  background-color: rgba(13, 27, 42, 0.55); /* Clareia levemente */
+  backdrop-filter: blur(1.5px); /* Reduz o blur para mostrar mais do site */
+}
+
+.case-preview-bg:hover .preview-box i {
+  transform: scale(1.15); /* Aumenta o ícone suavemente */
+}
