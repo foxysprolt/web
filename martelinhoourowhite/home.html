@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martelinho de Ouro Express — Funilaria Artesanal</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="martelinho.css">
+
+  <!-- BIBLIOTECA EMAILJS PARA ENVIO DE E-MAIL COM FOTO -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+     (function(){
+        // Insira sua Public Key do EmailJS aqui
+        emailjs.init("SUA_PUBLIC_KEY_AQUI");
+     })();
+  </script>
+</head>
+<body>
+
+  <!-- HEADER CLARO E FIXO -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <i class='bx bx-wrench logo-icon'></i>
+        <div class="logo-texto">
+          <span class="logo-bold">MARTELINHO</span>
+          <span class="logo-sub">DE OURO EXPRESS</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#home">Início</a>
+        <a href="#diferenciais">Vantagens</a>
+        <a href="#trabalhos">Antes & Depois</a>
+        <a href="#orcamento-rapido">Orçamento</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Localização</a>
+      </nav>
+
+      <a href="#orcamento-rapido" class="btn-whatsapp-nav">
+        Orçar com Foto <i class='bx bx-paper-plane'></i>
+      </a>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO SECTION (CLARO, LIMPO E ILUMINADO) -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge-hero">Especialista Local em Funilaria Artesanal</span>
+          <h1>Amassou o carro? Resolvemos <span class="highlight">sem pintar</span> e no mesmo dia.</h1>
+          <p class="hero-sub">Recuperamos a lataria original do seu veículo com a técnica de Martelinho de Ouro. Mantém a tinta de fábrica e evita a desvalorização.</p>
+
+          <div class="grid-facilidades">
+            <div class="item-facilidade"><i class='bx bx-check-circle'></i> Orçamento com foto online</div>
+            <div class="item-facilidade"><i class='bx bx-check-circle'></i> Sistema Leva e Traz no seu bairro</div>
+            <div class="item-facilidade"><i class='bx bx-check-circle'></i> Atendemos todas as seguradoras</div>
+            <div class="item-facilidade"><i class='bx bx-check-circle'></i> Serviço pronto em poucas horas</div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#orcamento-rapido" class="btn-primary">
+              Enviar foto para orçamento <i class='bx bx-camera'></i>
+            </a>
+            <a href="#trabalhos" class="btn-secondary">Ver resultados</a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Reparo de Martelinho de Ouro">
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO DE ORÇAMENTO PRÉVIO COM FOTO -->
+    <section id="orcamento-rapido" class="secao-orcamento">
+      <div class="container">
+        <div class="box-form-orcamento">
+          <div class="orcamento-header">
+            <span class="subtitulo"><i class='bx bx-calculator'></i> Orçamento Express</span>
+            <h2>Receba uma estimativa sem sair de casa</h2>
+            <p>Preencha os dados abaixo e envie a foto do amassado direto para a nossa equipe:</p>
+          </div>
+
+          <form id="form-orcamento-express" class="grid-form">
+            <div class="campo-form">
+              <label for="nome-cliente">Seu Nome *</label>
+              <input type="text" id="nome-cliente" placeholder="Ex: João Silva" required>
+            </div>
+
+            <div class="campo-form">
+              <label for="modelo-carro">Modelo do Veículo & Ano *</label>
+              <input type="text" id="modelo-carro" placeholder="Ex: Corolla 2021" required>
+            </div>
+
+            <div class="campo-form">
+              <label for="peca-amassada">Qual peça foi atingida? *</label>
+              <select id="peca-amassada" required>
+                <option value="" disabled selected>Selecione a peça...</option>
+                <option value="Porta">Porta</option>
+                <option value="Capô">Capô</option>
+                <option value="Teto">Teto (Chuva de granizo)</option>
+                <option value="Paralama">Paralama</option>
+                <option value="Porta-malas / Traseira">Porta-malas</option>
+                <option value="Outra parte / Múltiplas peças">Outra parte</option>
+              </select>
+            </div>
+
+            <div class="campo-form">
+              <label for="tipo-amassado">Grau do amassado</label>
+              <select id="tipo-amassado">
+                <option value="Pequeno (batida de porta)">Pequeno (ex: batida de porta)</option>
+                <option value="Vinco longo na lataria">Vinco com dobra na peça</option>
+                <option value="Chuva de Granizo">Chuva de Granizo</option>
+                <option value="Amassado grande">Amassado Grande</option>
+              </select>
+            </div>
+
+            <!-- UPLOAD DE FOTO (DRAG & DROP) -->
+            <div class="campo-form full-width">
+              <label>Anexar foto do amassado (Opcional)</label>
+              <div class="upload-box" id="drop-zone">
+                <input type="file" id="foto-amassado" accept="image/*" class="file-input">
+                <i class='bx bx-cloud-upload icon-upload'></i>
+                <p class="upload-text"><strong>Clique para selecionar</strong> ou arraste a foto do amassado aqui</p>
+                <span class="upload-hint">Formatos: JPG, PNG ou WEBP</span>
+              </div>
+
+              <div id="preview-container" class="preview-container" style="display: none;">
+                <img id="img-preview" src="" alt="Preview da foto">
+                <button type="button" id="btn-remove-foto" class="btn-remove-foto"><i class='bx bx-trash'></i> Remover foto</button>
+              </div>
+            </div>
+
+            <div class="campo-form full-width">
+              <label for="observacoes">Algum detalhe adicional?</label>
+              <textarea id="observacoes" rows="2" placeholder="Ex: A pintura não estourou..."></textarea>
+            </div>
+
+            <button type="submit" id="btn-submit-form" class="btn-enviar-orcamento">
+              Enviar Orçamento com Foto por E-mail <i class='bx bx-paper-plane'></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS / VANTAGENS -->
+    <section id="diferenciais" class="secao-cinza">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <span class="subtitulo">Por que escolher o Martelinho?</span>
+          <h2>A melhor opção para o seu bolso e seu veículo</h2>
+        </div>
+
+        <div class="grid-vantagens">
+          <div class="card-vantagem">
+            <i class='bx bx-paint-roll'></i>
+            <h3>100% Tinta Original</h3>
+            <p>Não usa massa nem tinta. O carro mantém a pintura de fábrica, evitando diferença de tonalidade.</p>
+          </div>
+
+          <div class="card-vantagem">
+            <i class='bx bx-time-five'></i>
+            <h3>Reparo Rápido</h3>
+            <p>Enquanto a funilaria demora dias, o martelinho devolve seu carro pronto em poucas horas.</p>
+          </div>
+
+          <div class="card-vantagem">
+            <i class='bx bx-dollar-circle'></i>
+            <h3>Muito Mais Econômico</h3>
+            <p>Economize até 60% em relação aos custos de uma pintura ou funilaria tradicional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA ANTES & DEPOIS -->
+    <section id="trabalhos" class="secao-branca">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <span class="subtitulo">A prova do trabalho</span>
+          <h2>Confira Alguns Antes & Depois</h2>
+        </div>
+
+        <div class="grid-antes-depois">
+          <div class="card-trabalho">
+            <span class="tag-veiculo">Vinco na Porta / Lateral</span>
+            <div class="comparativo-fotos">
+              <div class="foto-box antes"><span>ANTES</span></div>
+              <div class="foto-box depois"><span>DEPOIS</span></div>
+            </div>
+            <p class="trabalho-desc">Remoção completa de amassado provocado por porta em estacionamento.</p>
+          </div>
+
+          <div class="card-trabalho">
+            <span class="tag-veiculo">Teto & Capô (Chuva de Granizo)</span>
+            <div class="comparativo-fotos">
+              <div class="foto-box antes"><span>ANTES</span></div>
+              <div class="foto-box depois"><span>DEPOIS</span></div>
+            </div>
+            <p class="trabalho-desc">Recuperação de múltiplos pontos de amassado sem danificar o verniz.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTA DE SERVIÇOS JSON -->
+    <section id="servicos" class="secao-cinza">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <span class="subtitulo">Soluções da Oficina</span>
+          <h2>Nossos Serviços Especiais</h2>
+        </div>
+
+        <div id="grid-servicos-martelinho" class="grid-servicos-json">
+          <!-- Injetado pelo JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER LOCAL -->
+  <footer id="contato" class="footer">
+    <div class="container grid-footer">
+      <div class="coluna-f">
+        <span class="logo-bold">MARTELINHO DE OURO</span>
+        <p>Sua oficina de confiança no bairro. Qualidade e honestidade no atendimento.</p>
+      </div>
+
+      <div class="coluna-f">
+        <h4>Horário de Atendimento</h4>
+        <p>Segunda a Sexta: 08h às 18h</p>
+        <p>Sábado: 08h às 13h</p>
+      </div>
+
+      <div class="coluna-f">
+        <h4>Endereço & Contato</h4>
+        <p><i class='bx bx-map'></i> Rua Principal do Bairro, 150 — SP</p>
+        <p><i class='bx bxl-whatsapp'></i> (11) 99999-9999</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Flores de Luxo. Todos os direitos reservados.
+Desenvolvido e Gerenciado por <a href="#">Agência Despertar</a>.</p>
+    </div>
+  </footer>
+
+  <script src="martelinho.js"></script>
+</body>
+</html>

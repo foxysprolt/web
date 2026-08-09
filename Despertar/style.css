@@ -28,8 +28,10 @@
   scroll-behavior: smooth;
 }
 
+/* FUNDO COM DEGRADÊ E FIXADO */
 body {
-  background-color: var(--azul-escuro-bg);
+  background: linear-gradient(180deg, #132238 0%, #0D1B2A 45%, #07090E 100%);
+  background-attachment: fixed;
   color: var(--branco-puro);
   font-family: var(--font-textos);
   line-height: 1.6;
@@ -41,11 +43,12 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
 }
 
 .container {
+  max-width: 1800px;
   margin: 0 auto;
   padding: 0 32px;
 }
 
-/* LOGO */
+/* LOGO EM ALTA RESOLUÇÃO */
 .logo {
   font-size: 24px;
   text-decoration: none;
@@ -54,14 +57,25 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   align-items: center;
 }
 
-.logo-bold {
-  font-weight: 900;
-  letter-spacing: -0.5px;
+.logo-img {
+  height: 42px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.2s ease;
 }
 
-.logo-dot {
-  color: var(--laranja-principal);
-  font-weight: 900;
+.logo-img:hover {
+  transform: scale(1.04);
+}
+
+.logo-img-footer {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: 12px;
 }
 
 /* HEADER */
@@ -121,9 +135,23 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   color: var(--branco-puro);
 }
 
-/* HERO SECTION */
+/* HERO SECTION (2 COLUNAS) */
 .hero {
   padding: 180px 0 90px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+  }
 }
 
 .badge-hero {
@@ -145,7 +173,6 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   font-weight: 900;
   line-height: 1.15;
   letter-spacing: -1.5px;
-  max-width: 900px;
   margin-bottom: 8px;
 }
 
@@ -166,7 +193,6 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
 .hero-descricao {
   font-size: 18px;
   color: var(--text-muted);
-  max-width: 680px;
   margin-bottom: 36px;
 }
 
@@ -210,7 +236,79 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   color: var(--branco-puro);
 }
 
-/* NÚMEROS / IMPACTO */
+/* PAINEL VISUAL DO HERO (LADO DIREITO) */
+.hero-card-glow {
+  background-color: var(--preto-secundario);
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 106, 0, 0.1);
+  overflow: hidden;
+}
+
+.glow-header {
+  background-color: #07090E;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot.red { background-color: #ef4444; }
+.dot.yellow { background-color: #f59e0b; }
+.dot.green { background-color: #10b981; }
+
+.glow-title {
+  margin-left: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+.glow-body {
+  padding: 24px;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.metric-row .highlight-val {
+  color: var(--laranja-principal);
+  font-weight: 700;
+  font-family: var(--font-titulos);
+}
+
+.tech-badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.t-badge {
+  background-color: rgba(255, 106, 0, 0.1);
+  color: var(--laranja-principal);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 106, 0, 0.2);
+}
+
+/* BLOCO DE NÚMEROS / IMPACTO */
 .numeros {
   background-color: var(--preto-secundario);
   border-top: 1px solid var(--border-color);
@@ -269,9 +367,10 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   line-height: 1.7;
 }
 
-/* CABEÇALHO DE SEÇÕES */
+/* CABEÇALHO DE SEÇÕES (CENTRALIZADO) */
 .secao-cabecalho {
-  margin-bottom: 45px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .secao-cabecalho .subtitulo {
@@ -280,7 +379,7 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  display: block;
+  display: inline-block;
   margin-bottom: 8px;
 }
 
@@ -290,10 +389,16 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   letter-spacing: -0.5px;
 }
 
-/* CASES DE SUCESSO */
+/* CASES DE SUCESSO / PORTFÓLIO */
 .cases {
   padding: 100px 0;
   border-bottom: 1px solid var(--border-color);
+}
+
+.grid-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .card-case {
@@ -359,30 +464,94 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   font-size: 14px;
 }
 
-.case-preview {
-  background-color: var(--azul-escuro-bg);
+/* PREVIEW DO PORTFÓLIO COM BLUR */
+.case-preview-bg {
+  position: relative;
+  background-image: url('preview-melin.jpg'); /* AJUSTE SEU CAMINHO AQUI */
+  background-size: cover;
+  background-position: center;
   border-radius: 12px;
-  border: 1px dashed var(--border-color);
+  overflow: hidden;
+  min-height: 260px;
+  border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 250px;
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 27, 42, 0.75);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.preview-box-link {
+  position: relative;
+  z-index: 2;
+  text-decoration: none !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
 }
 
 .preview-box {
   text-align: center;
-  color: var(--text-muted);
 }
 
 .preview-box i {
-  font-size: 48px;
+  font-size: 42px;
   color: var(--laranja-principal);
   margin-bottom: 8px;
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.preview-box span {
+  color: var(--branco-puro) !important;
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+}
+
+.preview-box small {
+  display: block;
+  color: var(--laranja-principal) !important;
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.case-preview-bg:hover .preview-overlay {
+  background-color: rgba(13, 27, 42, 0.55);
+  backdrop-filter: blur(0.75px);
+}
+
+.case-preview-bg:hover .preview-box i {
+  transform: scale(1.15);
+}
+
+/* CARD DE NOVO CLIENTE EM BREVE */
+.card-futuro {
+  border-style: dashed !important;
+  opacity: 0.85;
+}
+
+.card-futuro:hover {
+  opacity: 1;
 }
 
 /* ==========================================
-   SEÇÃO DE PLANOS & SERVIÇOS (4 COLUNAS EM 1 LINHA)
+   SEÇÃO DE PLANOS (4 COLUNAS EM 1 LINHA)
    ========================================== */
 .servicos {
   padding: 100px 0;
@@ -391,12 +560,11 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
 
 .grid-servicos {
   display: grid;
-  grid-template-columns: 1fr; /* 1 coluna no celular */
+  grid-template-columns: 1fr;
   gap: 20px;
-  align-items: stretch; /* Alinha todos os cards para terem a mesma altura */
+  align-items: stretch;
 }
 
-/* TELAS GRANDES / COMPUTADOR: FORÇA 4 COLUNAS NA MESMA LINHA */
 @media (min-width: 1024px) {
   .grid-servicos {
     grid-template-columns: repeat(4, 1fr);
@@ -404,7 +572,6 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   }
 }
 
-/* ESTILO BASE DO CARD DE PLANO */
 .card-servico {
   background-color: var(--preto-secundario);
   border: 1px solid var(--border-color);
@@ -442,7 +609,6 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   line-height: 1.5;
 }
 
-/* PREÇO DOS PLANOS */
 .preco-plano {
   font-size: 22px;
   font-weight: 800;
@@ -457,7 +623,6 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   display: block;
 }
 
-/* LISTA DE RECURSOS */
 .lista-recursos {
   list-style: none;
   margin: 16px 0 24px 0;
@@ -479,7 +644,6 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   flex-shrink: 0;
 }
 
-/* CARD DESTAQUE (MAIS VENDIDO) */
 .destaque-plano {
   border-color: var(--laranja-principal) !important;
   box-shadow: 0 8px 30px rgba(255, 106, 0, 0.15);
@@ -501,34 +665,6 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   white-space: nowrap;
 }
 
-/* ==========================================
-   AJUSTE DE LOGO EM ALTA RESOLUÇÃO (2000x2000)
-   ========================================== */
-
-/* Logo do Header Fixo */
-.logo-img {
-  height: 65px; /* Define a altura visível perfeita na barra */
-  width: auto;  /* Mantém a proporção quadrada sem achatar */
-  max-width: 100%;
-  display: block;
-  object-fit: contain;
-  transition: transform 0.2s ease;
-}
-
-.logo-img:hover {
-  transform: scale(1.04);
-}
-
-/* Logo do Footer */
-.logo-img-footer {
-  height: 48px;
-  width: auto;
-  display: block;
-  object-fit: contain;
-  margin-bottom: 12px;
-}
-
-/* CARD CUSTOMIZADO */
 .card-customizado {
   background-color: rgba(255, 106, 0, 0.02) !important;
   border: 1px dashed var(--laranja-principal) !important;
@@ -560,37 +696,7 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   width: 100%;
 }
 
-/* REMOVE O SUBLINHADO E COR DE LINK VISITADO NA DEMONSTRAÇÃO TÉCNICA */
-.preview-box-link {
-  text-decoration: none !important;
-  color: inherit !important;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 20px;
-}
-
-.preview-box-link span {
-  color: var(--branco-puro) !important;
-  font-size: 16px;
-  font-weight: 700;
-  display: block;
-  margin-top: 8px;
-}
-
-.preview-box-link small {
-  color: var(--laranja-principal) !important;
-  text-decoration: none !important;
-}
-
-.preview-box-link:hover .preview-box i {
-  transform: scale(1.1);
-  transition: transform 0.2s ease;
-}
-
-/* VALORES */
+/* VALORES DA MARCA */
 .valores {
   padding: 100px 0;
   border-bottom: 1px solid var(--border-color);
@@ -626,7 +732,7 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   color: var(--text-muted);
 }
 
-/* BANNER CTA */
+/* BANNER CTA FINAL */
 .cta-banner {
   padding: 100px 0;
 }
@@ -693,8 +799,6 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   transition: color 0.2s;
 }
 
-
-
 .coluna-footer ul li a:hover {
   color: var(--laranja-principal);
 }
@@ -705,6 +809,16 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   text-align: center;
   color: var(--text-muted);
   font-size: 13px;
+}
+
+/* SUPORTE PARA TELAS ULTRAWIDE */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1650px;
+  }
+  .hero h1 {
+    font-size: 56px;
+  }
 }
 
 /* RESPONSIVO PARA CELULARES */
@@ -721,103 +835,4 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   .secao-cabecalho h2 {
     font-size: 26px;
   }
-  .logo-img {
-  height: 45px
-  }
-}
-/* GRADE DE CASES */
-.grid-cases {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-/* ESTILO PARA CARD DE NOVO CLIENTE EM BREVE */
-.card-futuro {
-  border-style: dashed !important;
-  opacity: 0.85;
-}
-
-.card-futuro:hover {
-  opacity: 1;
-}
-
-/* CONTAINER PRINCIPAL DO PREVIEW */
-.case-preview-bg {
-  position: relative;
-  /* CAMINHO DA FOTO DE CAPA */
-  background-image: url('preview-melin.jpg'); 
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  overflow: hidden;
-  min-height: 260px;
-  border: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* CAMADA DE ESCURECIMENTO E BLUR (FICA ATRÁS) */
-.preview-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(13, 27, 42, 0.55); /* Camada escura */
-  backdrop-filter: blur(3px); /* Efeito Blur */
-  -webkit-backdrop-filter: blur(3px);
-  z-index: 1; /* Fica na camada 1 */
-  transition: all 0.3s ease;
-}
-
-/* LINK E TEXTO (FICA NA FRENTE) */
-.preview-box-link {
-  position: relative;
-  z-index: 2; /* Força o texto a ficar por CIMA do overlay (camada 2) */
-  text-decoration: none !important;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 20px;
-}
-
-.preview-box {
-  text-align: center;
-}
-
-.preview-box i {
-  font-size: 42px;
-  color: var(--laranja-principal);
-  margin-bottom: 8px;
-  display: block;
-  transition: transform 0.3s ease;  
-}
-
-.preview-box span {
-  color: var(--branco-puro) !important;
-  font-size: 16px;
-  font-weight: 700;
-  display: block;
-}
-
-.preview-box small {
-  display: block;
-  color: var(--laranja-principal) !important;
-  margin-top: 6px;
-  font-weight: 700;
-  font-size: 12px;
-}
-
-/* EFEITO AO PASSAR O MOUSE (HOVER) */
-.case-preview-bg:hover .preview-overlay {
-  background-color: rgba(13, 27, 42, 0.55); /* Clareia levemente */
-  backdrop-filter: blur(1.5px); /* Reduz o blur para mostrar mais do site */
-}
-
-.case-preview-bg:hover .preview-box i {
-  transform: scale(1.15); /* Aumenta o ícone suavemente */
 }

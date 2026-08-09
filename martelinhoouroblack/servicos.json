@@ -1,0 +1,37 @@
+[
+  {
+    "id": "lavagem-tecnica",
+    "nome": "Lavagem Técnica",
+    "categoria": "automotivo",
+    "descricao": "A lavagem é essencial para cuidar da pintura do seu veículo. Nossa lavagem abrange rodas, caixa de rodas e aplicação de cera protetora.",
+    "imagem": "assets/img/lavagem.webp"
+  },
+  {
+    "id": "polimento-pintura",
+    "nome": "Polimento de Pintura",
+    "categoria": "automotivo",
+    "descricao": "Remoção de riscos superficiais, manchas e marcas de boina. Devolve o brilho intenso e o aspecto de carro novo.",
+    "imagem": "assets/img/polimento.webp"
+  },
+  {
+    "id": "vitrificacao-3d",
+    "nome": "Vitrificação de Pintura",
+    "categoria": "automotivo",
+    "descricao": "Proteção de alta durabilidade contra raios UV, fezes de pássaros e intempéries. Proteção garantida de até 3 anos.",
+    "imagem": "assets/img/vitrificacao.webp"
+  },
+  {
+    "id": "higienizacao-interna",
+    "nome": "Higienização Interna",
+    "categoria": "automotivo",
+    "descricao": "Limpeza profunda de bancos, teto, carpetes e painel com eliminação de 99.9% de fungos e bactérias.",
+    "imagem": "assets/img/higienizacao.webp"
+  },
+  {
+    "id": "impermeabilizacao-sofa",
+    "nome": "Impermeabilização de Sofá",
+    "categoria": "residencial",
+    "descricao": "Proteção contra derramamento de líquidos, sujeiras e poeira. Preserva o tecido e facilita a limpeza diária.",
+    "imagem": "assets/img/sofa.webp"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "amassados-leves",
+    "nome": "Remoção de Pequenos Amassados",
+    "descricao": "Ideal para amassados de portas causados por batidas em estacinamentos ou pequenas pancadas na lataria."
+  },
+  {
+    "id": "chuva-granizo",
+    "nome": "Reparo de Chuva de Granizo",
+    "descricao": "Recuperação completa do teto, capô e porta-malas atingidos por pedras de gelo, mantendo a pintura original."
+  },
+  {
+    "id": "vincos-laterais",
+    "nome": "Desamassamento de Vincos Complexos",
+    "descricao": "Técnica avançada com alavancas para desamassar vincos fortes sem precisar trocar ou pintar a peça."
+  },
+  {
+    "id": "polimento-express",
+    "nome": "Polimento Localizado & Brilho",
+    "descricao": "Remoção de riscos superficiais ao redor do local desamassado para deixar o acabamento invisível."
+  }
+]
