@@ -540,6 +540,18 @@ h1, h2, h3, h4, .logo, .btn-primary, .badge-hero, .slogan-marca, .preco-plano {
   transform: scale(1.15);
 }
 
+/* CAPA ESPECÍFICA DO SEGUNDO CARD (MARTELINHO) */
+.martelinho-preview {
+  background-image: url('preview-martelinho.jpg'); /* Altere para o caminho da foto da capa do martelinho */
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+
+
+
 /* CARD DE NOVO CLIENTE EM BREVE */
 .card-futuro {
   border-style: dashed !important;
