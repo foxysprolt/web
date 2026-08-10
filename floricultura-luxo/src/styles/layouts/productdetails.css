@@ -1,0 +1,164 @@
+/* ==========================================
+   ESTILOS DA PÁGINA DE DETALHES DO PRODUTO
+   ========================================== */
+
+.secao-produto-detalhe {
+  max-width: 1200px;
+  margin: 130px auto 60px auto; /* Espaço para não ficar sob o Header fixo */
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .secao-produto-detalhe {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+}
+
+/* NAVEGAÇÃO / BREADCRUMB */
+.navegacao-voltar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navegacao-voltar a {
+  color: #777777;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navegacao-voltar a:hover {
+  color: #d4af37;
+}
+
+.navegacao-voltar span {
+  color: #cccccc;
+  font-size: 14px;
+}
+
+/* CARD DA IMAGEM */
+.produto-galeria-card {
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.produto-galeria-card img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* INFORMAÇÕES DO PRODUTO */
+.produto-info-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.produto-info-card .tag-categoria {
+  display: inline-block;
+  background-color: #fcf8ec;
+  color: #d4af37;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.produto-info-card h1 {
+  font-size: 30px;
+  color: #222222;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.produto-info-card .preco-destaque {
+  font-size: 28px;
+  color: #d4af37;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.divisor-linha {
+  height: 1px;
+  background-color: #eeeeee;
+  margin-bottom: 20px;
+}
+
+.produto-info-card h4 {
+  font-size: 15px;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.produto-info-card p.descricao {
+  font-size: 15px;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* SELO DE ENTREGA */
+.selo-entrega {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f9f9f9;
+  border: 1px dashed #dddddd;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 13px;
+  color: #444444;
+}
+
+.selo-entrega i {
+  font-size: 22px;
+  color: #25d366;
+}
+
+/* BOTÃO WHATSAPP */
+.btn-comprar-wa-grande {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  background-color: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-comprar-wa-grande:hover {
+  background-color: #1eb954;
+  transform: translateY(-2px);
+}
+
+.btn-comprar-wa-grande i {
+  font-size: 24px;
+}

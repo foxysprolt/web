@@ -3,6 +3,8 @@
 @import url('./layouts/header.css'); 
 @import url('./layouts/hero.css');
 @import url('./layouts/products.css');
+@import url('./layouts/allproducts.css');
 @import url('./layouts/wrapper.css'); 
 @import url('./layouts/dif.css'); 
 @import url('./layouts/contact.css'); 
+@import url('./layouts/productdetails.css'); 

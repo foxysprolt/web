@@ -3,33 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores de Luxo</title>
+    <title>Melin Flores de Luxo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../styles/global.css">
 </head>
 
 <body class="loading">
 
-
 <header class="header-melin">
   <div class="header-container">
     
     <!-- LOGO -->
     <a href="#inicio" class="logo-link">
-      <img src="../assets/img/logo1.svg" class="headerlogo" alt="logo">
+      <img src="../assets/img/logo1.svg" class="headerlogo" alt="Melin Flores">
     </a>
 
     <!-- MENU DE NAVEGAÇÃO -->
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#wrapper">Coleções</a></li>
+        <li><a href="#catalogo-categorias">Coleções</a></li>
         <li><a href="#wrapper">Best sellers</a></li>
         <li><a href="#map">Contato</a></li>
       </ul>
     </nav>
 
-    <!-- BARRA DE PESQUISA COM DROPDOWN (Á DIREITA) -->
     <div class="search-box">
       <input type="text" id="campo-pesquisa" placeholder="Pesquisar flores..." onkeyup="filtrarProdutos()">
       <div id="catalogo-produtos" class="resultados-dropdown"></div>
@@ -38,160 +36,88 @@
   </div>
 </header>
 
-<script>
-  let todosOsProdutos = [];
-
-  // 1. Carrega o arquivo JSON com os produtos
-  fetch('produtos.json')
-    .then(response => response.json())
-    .then(data => {
-      todosOsProdutos = data;
-    })
-    .catch(error => console.error('Erro ao carregar produtos:', error));
-
-  // 2. Desenha os cards no mini dropdown
-  function exibirProdutos(produtos) {
-    const container = document.getElementById('catalogo-produtos');
-    container.innerHTML = '';
-
-    if (produtos.length === 0) {
-      container.innerHTML = '<p style="font-size:12px; color:#888; text-align:center; padding:10px;">Nenhum produto encontrado.</p>';
-      return;
-    }
-
-    produtos.forEach(prod => {
-      const card = `
-        <div class="card-produto-mini">
-          <img src="${prod.imagem}" alt="${prod.nome}">
-          <div class="card-produto-info">
-            <h4>${prod.nome}</h4>
-            <p class="preco">${prod.preco}</p>
-          </div>
-          <a href="${prod.link}" target="_blank" class="btn-pedir-mini">Pedir</a>
-        </div>
-      `;
-      container.innerHTML += card;
-    });
-  }
-
-  // 3. Filtra ao digitar
-  function filtrarProdutos() {
-    const termo = document.getElementById('campo-pesquisa').value.toLowerCase().trim();
-    const container = document.getElementById('catalogo-produtos');
-
-    if (termo === '') {
-      container.innerHTML = '';
-      return;
-    }
-
-    const produtosFiltrados = todosOsProdutos.filter(prod => 
-      prod.nome.toLowerCase().includes(termo)
-    );
-    exibirProdutos(produtosFiltrados);
-  }
-
-  // 4. Fecha ao clicar fora
-  document.addEventListener('click', function(event) {
-    const searchBox = document.querySelector('.search-box');
-    const container = document.getElementById('catalogo-produtos');
-    
-    if (searchBox && !searchBox.contains(event.target)) {
-      container.innerHTML = '';
-      document.getElementById('campo-pesquisa').value = '';
-    }
-  });
-</script>
-</header>
-
-
-
-
-
 <section id="inicio" class="hero">
     <h2>Transforme momentos <br>em memórias</h2>
     <h3>Presentes, Surpresas e Experiências</h3>
-    <button>ver produtos</button>
+    <button><a href="#catalogo-categorias">ver produtos</a></button>
 </section>
 
+<!-- SEÇÃO BEST SELLERS (DINÂMICA) -->
+<section id="wrapper" class="wrapper">
+  <p>Mais vendidos</p>
+  <div id="galeria-bestsellers" class="container">
+    <!-- Os cards serão gerados automaticamente via JavaScript -->
+  </div>
+</section>
 
+<section id="catalogo-categorias" class="secao-catalogo">
 
-    <section id="wrapper" class="wrapper">
-      <p>Mais vendidos</p>
-    <div class="container">
-
-      <div class="box">
-        <img src="../assets/flores/buque_de_flores_do_campo-1024x1024.webp" >
-        <h3>Buque de Flores do Campo</h3>
-        <h2>R$ 199,90</h2>
-        <button>Ver detalhes</button>
-      </div>
-
-      <div class="box">
-        <img src="../assets/flores/buque_de_flores_do_campo-1024x1024.webp" >
-        <h3>Buque de Flores do Campo</h3>
-        <h2>R$ 199,90</h2>
-        <button>Ver detalhes</button>
-      </div>
-
-      <div class="box">
-        <img src="../assets/flores/buque_de_flores_do_campo-1024x1024.webp" >
-        <h3>Buque de Flores do Campo</h3>
-        <h2>R$ 199,90</h2>
-        <button>Ver detalhes</button>
-      </div>
-
-      <div class="box">
-        <img src="../assets/flores/buque_de_flores_do_campo-1024x1024.webp" >
-        <h3>Buque de Flores do Campo</h3>
-        <h2>R$ 199,90</h2>
-        <button>Ver detalhes</button>
-      </div>
+  <!-- LINHA 1: BUQUÊS -->
+  <div class="categoria-bloco">
+    <div class="titulo-categoria">
+      <h2>Buquês Especiais</h2>
+      <p>Arraste para o lado ou use as setas para ver mais</p>
     </div>
-    </section>
-
-
-    <!-- NOVA SEÇÃO: TODOS OS PRODUTOS (VITRINE COMPLETA) -->
-<section id="catalogo-completo" class="secao-catalogo">
-  <div class="titulo-catalogo">
-    <h2>Nosso Catálogo Completo</h2>
-    <p>Escolha o arranjo perfeito para surpreender quem você ama</p>
+    
+    <div class="carrossel-container-wrapper">
+      <button class="btn-seta seta-esquerda" onclick="rolarCarrossel('galeria-buques', -280)">
+        <i class='bx bx-chevron-left'></i>
+      </button>
+      
+      <div id="galeria-buques" class="carrossel-horizontal"></div>
+      
+      <button class="btn-seta seta-direita" onclick="rolarCarrossel('galeria-buques', 280)">
+        <i class='bx bx-chevron-right'></i>
+      </button>
+    </div>
   </div>
 
-  <!-- CONTAINER ONDE O JAVASCRIPT INJETA OS PRODUTOS DO JSON -->
-  <div id="grid-todos-produtos" class="grid-catalogo-produtos"></div>
+  <!-- LINHA 2: PRESENTES E CESTAS -->
+  <div class="categoria-bloco">
+    <div class="titulo-categoria">
+      <h2>Presentes & Cestas</h2>
+      <p>Arraste para o lado ou use as setas para ver mais</p>
+    </div>
+    
+    <div class="carrossel-container-wrapper">
+      <button class="btn-seta seta-esquerda" onclick="rolarCarrossel('galeria-presentes', -280)">
+        <i class='bx bx-chevron-left'></i>
+      </button>
+      
+      <div id="galeria-presentes" class="carrossel-horizontal"></div>
+      
+      <button class="btn-seta seta-direita" onclick="rolarCarrossel('galeria-presentes', 280)">
+        <i class='bx bx-chevron-right'></i>
+      </button>
+    </div>
+  </div>
+
 </section>
 
+<section class="dif">
+  <div class="dif-box">
+    <i data-lucide="truck"></i>
+    <h2>Envio em 3 Horas*</h2>   
+    <h3>*sujeito região</h3>     
+  </div>
 
+  <div class="dif-box">
+    <i data-lucide="flower-2"></i>
+    <h2>Flores de alto padrão</h2>    
+  </div>
 
-    <section class="dif">
+  <div class="dif-box">
+    <i data-lucide="lock"></i>
+    <h2>Pagamento 100% Seguro</h2>        
+  </div>
 
-      <div class="dif-box">
-        <i data-lucide="truck"></i>
-        <h2>Envio em 3 Horas*</h2>   
-        <h3>*sujeito região</h3>     
-      </div>
+  <div class="dif-box">
+    <i data-lucide="gift"></i>
+    <h2>Embalagem de presente</h2>        
+  </div>
+</section>
 
-      <div class="dif-box">
-        <i data-lucide="flower-2"></i>
-        <h2>Flores de alto padrão</h2>    
-      </div>
-
-       <div class="dif-box">
-        <i data-lucide="lock"></i>
-        <h2>Pagamento 100% Seguro</h2>        
-       </div>
-
-       <div class="dif-box">
-        <i data-lucide="gift"></i>
-        <h2>Embalagem de presente</h2>        
-      </div>
-
-
-    </section>
-
-
-    
-    <section class="contact-section">
+<section class="contact-section">
   <h2>Fale Conosco & Faça seu Pedido</h2>
   <p>Estamos prontos para te atender! Mande uma mensagem ou venha nos visitar.</p>
 
@@ -217,41 +143,90 @@
   </a>
 </section>
 
+<section id="map" class="map">
+  <div style="width: 100%">
+    <iframe
+      width="100%"
+      height="250"
+      frameborder="0"
+      scrolling="no"
+      marginheight="0"
+      marginwidth="0"
+      src="https://maps.google.com/maps?width=100%25&amp;height=250&amp;hl=en&amp;q=R.%20Cerro%20Cor%C3%A1,%20685%20-%20Vila%20Madalena,%20S%C3%A3o%20Paulo%20-%20SP,%2005061-150+(Melin%20Flores%20de%20Luxo)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+    </iframe>
+  </div>
+</section>
 
+<footer>
+  <p>&copy; 2026 Melin Flores de Luxo. Todos os direitos reservados. Desenvolvido e Gerenciado por <a href="#">Agência Despertar</a>.</p>
+</footer> 
 
+<!-- SCRIPTS -->
+<script src="../scripts/pages/home.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
 
+<script>
+  let todosOsProdutos = [];
 
+  fetch('./produtos.json')
+    .then(response => response.json())
+    .then(data => {
+      todosOsProdutos = data;
+    })
+    .catch(error => console.error('Erro ao carregar produtos:', error));
 
-    
+  function exibirProdutos(produtos) {
+    const container = document.getElementById('catalogo-produtos');
+    container.innerHTML = '';
 
-    <section id="map" class="map">
-          <div style="width: 100%">
-            <iframe
-              width="100%"
-              height="250"
-              frameborder="0"
-              scrolling="no"
-              marginheight="0"
-              marginwidth="0"
-              src="https://maps.google.com/maps?width=100%25&amp;height=250&amp;hl=en&amp;q=R.%20Cerro%20Cor%C3%A1,%20685%20-%20Vila%20Madalena,%20S%C3%A3o%20Paulo%20-%20SP,%2005061-150+(20Flores%20de%20Luxo)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-              <a href="https://maps.app.goo.gl/SB9ZVekSCEBs7D1f8" target="_blank">
-              Abrir Maps
-              </a>
-            </iframe>
+    if (produtos.length === 0) {
+      container.innerHTML = '<p style="font-size:12px; color:#888; text-align:center; padding:10px;">Nenhum produto encontrado.</p>';
+      return;
+    }
+
+    produtos.forEach(prod => {
+      const card = `
+        <div class="card-produto-mini">
+          <img src="${prod.imagem}" alt="${prod.nome}">
+          <div class="card-produto-info">
+            <h4>${prod.nome}</h4>
+            <p class="preco">${prod.preco}</p>
           </div>
-    </section>
+          <a href="${prod.link}" target="_blank" class="btn-pedir-mini">Pedir</a>
+        </div>
+      `;
+      container.innerHTML += card;
+    });
+  }
 
+  function filtrarProdutos() {
+    const termo = document.getElementById('campo-pesquisa').value.toLowerCase().trim();
+    const container = document.getElementById('catalogo-produtos');
 
-   <footer>
-        <p>&copy; 2026 Flores de Luxo. Todos os direitos reservados.
-Desenvolvido e Gerenciado por <a href="#">Agência Despertar</a>.</p>
-   </footer> 
+    if (termo === '') {
+      container.innerHTML = '';
+      return;
+    }
 
+    const produtosFiltrados = todosOsProdutos.filter(prod => 
+      prod.nome.toLowerCase().includes(termo)
+    );
+    exibirProdutos(produtosFiltrados);
+  }
 
-  <script src="../scripts/pages/home.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
-  </script>
-  </body>
+  document.addEventListener('click', function(event) {
+    const searchBox = document.querySelector('.search-box');
+    const container = document.getElementById('catalogo-produtos');
+    
+    if (searchBox && !searchBox.contains(event.target)) {
+      container.innerHTML = '';
+      document.getElementById('campo-pesquisa').value = '';
+    }
+  });
+</script>
+
+</body>
 </html>

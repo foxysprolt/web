@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto — Melin Flores de Luxo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../styles/global.css">
+
+<body class="loading">
+
+  <!-- HEADER -->
+  <header class="header-melin">
+    <div class="header-container">
+      
+      <a href="home.html" class="logo-link">
+        <img src="../assets/img/logo1.svg" class="headerlogo" alt="Melin Flores">
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="home.html">Inicio</a></li>
+          <li><a href="home.html#catalogo-categorias">Coleções</a></li>
+          <li><a href="home.html#wrapper">Best sellers</a></li>
+          <li><a href="#map">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="search-box">
+        <input type="text" id="campo-pesquisa" placeholder="Pesquisar flores..." onkeyup="filtrarProdutos()">
+        <div id="catalogo-produtos" class="resultados-dropdown"></div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL DO PRODUTO -->
+  <main>
+    <section class="secao-produto-detalhe">
+      
+      <div>
+        <div class="navegacao-voltar">
+          <a href="home.html"><i class='bx bx-left-arrow-alt'></i> Voltar ao Início</a>
+          <span>/</span>
+          <a href="home.html#catalogo-categorias">Coleções</a>
+        </div>
+
+        <div class="produto-galeria-card">
+          <img id="detalhe-imagem" src="" alt="Carregando imagem...">
+        </div>
+      </div>
+
+      <div class="produto-info-card">
+        <span class="tag-categoria">Floricultura de Luxo</span>
+        <h1 id="detalhe-nome">Carregando produto...</h1>
+        <div id="detalhe-preco" class="preco-destaque">--</div>
+
+        <div class="divisor-linha"></div>
+
+        <h4>Descrição do Arranjo:</h4>
+        <p id="detalhe-descricao" class="descricao">Aguarde um momento enquanto carregamos os detalhes do item.</p>
+
+        <div class="selo-entrega">
+          <i class='bx bx-time-five'></i>
+          <span><strong>Entrega Expressa:</strong> Receba em até 3 horas na região metropolitana.</span>
+        </div>
+
+        <a id="detalhe-link-wa" href="#" target="_blank" class="btn-comprar-wa-grande">
+          <i class='bx bxl-whatsapp'></i> Fazer Pedido pelo WhatsApp
+        </a>
+      </div>
+
+    </section>
+
+    <!-- SEÇÃO DE DIFERENCIAIS -->
+    <section class="dif">
+      <div class="dif-box">
+        <i data-lucide="truck"></i>
+        <h2>Envio em 3 Horas*</h2>   
+        <h3>*sujeito região</h3>     
+      </div>
+
+      <div class="dif-box">
+        <i data-lucide="flower-2"></i>
+        <h2>Flores de alto padrão</h2>    
+      </div>
+
+      <div class="dif-box">
+        <i data-lucide="lock"></i>
+        <h2>Pagamento 100% Seguro</h2>        
+      </div>
+
+      <div class="dif-box">
+        <i data-lucide="gift"></i>
+        <h2>Embalagem de presente</h2>        
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE CONTATO -->
+    <section class="contact-section">
+      <h2>Fale Conosco & Faça seu Pedido</h2>
+      <p>Estamos prontos para te atender! Mande uma mensagem ou venha nos visitar.</p>
+
+      <div class="contact-info-list">
+        <div class="contact-info-item">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp: <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site!" target="_blank">(11) 99999-9999</a></span>
+        </div>
+
+        <div class="contact-info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Endereço: Rua Exemplo, 123 — Caieiras - SP</span>
+        </div>
+
+        <div class="contact-info-item">
+          <i class="fa-solid fa-clock"></i>
+          <span>Atendimento: Seg a Sex das 08h às 18h | Sáb das 08h às 13h</span>
+        </div>
+      </div>
+
+      <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site!" target="_blank" class="btn-whatsapp-block">
+        <i class="fa-brands fa-whatsapp"></i> Pedir pelo WhatsApp Agora
+      </a>
+    </section>
+
+    <!-- MAPA -->
+    <section id="map" class="map">
+      <div style="width: 100%">
+        <iframe
+          width="100%"
+          height="250"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          src="https://maps.google.com/maps?width=100%25&amp;height=250&amp;hl=en&amp;q=R.%20Cerro%20Cor%C3%A1,%20685%20-%20Vila%20Madalena,%20S%C3%A3o%20Paulo%20-%20SP,%2005061-150+(Melin%20Flores%20de%20Luxo)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Melin Flores de Luxo. Todos os direitos reservados. Desenvolvido e Gerenciado por <a href="#">Agência Despertar</a>.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="../scripts/pages/produto.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

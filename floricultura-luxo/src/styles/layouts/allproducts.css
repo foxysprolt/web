@@ -1,0 +1,177 @@
+.secao-catalogo {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+
+  .categoria-bloco {
+    margin-bottom: 30px;
+  }
+
+  .titulo-categoria h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  .titulo-categoria p {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 12px;
+  }
+
+  /* CARROSSEL HORIZONTAL OTIMIZADO PARA TOUCH / CELULAR */
+  .carrossel-horizontal {
+    display: flex !important;
+    gap: 15px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important; /* Magnetiza os cards ao deslizar no celular */
+    -webkit-overflow-scrolling: touch; /* Deixa o deslize super suave no iPhone */
+    padding: 10px 5px 20px 5px !important;
+  }
+
+  /* Oculta a barra de rolagem em celulares mantendo o deslize funcional */
+  .carrossel-horizontal::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* CARDS DE PRODUTO */
+  .carrossel-horizontal .box {
+    flex: 0 0 210px !important; /* Largura ideal no celular (deixa um pedaço do próximo card visível) */
+    width: 210px !important;
+    scroll-snap-align: start !important; /* Alinha o card magneticamente na tela */
+    background: #ffffff !important;
+    border: 1px solid #eeeeee !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    text-align: center !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .carrossel-horizontal .box img {
+    width: 100% !important;
+    height: 160px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .carrossel-horizontal .box h3 {
+    font-size: 14px !important;
+    color: #333333 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .carrossel-horizontal .box h2 {
+    font-size: 16px !important;
+    color: #d4af37 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .carrossel-horizontal .box button {
+    width: 100% !important;
+    background-color: #25d366 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 9px !important;
+    border-radius: 6px !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+  }
+
+  .carrossel-container-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* BARRA DE ROLAGEM DOURADA VISÍVEL */
+.carrossel-horizontal {
+  display: flex !important;
+  gap: 20px !important;
+  overflow-x: auto !important;
+  padding: 10px 5px 20px 5px !important;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carrossel-horizontal::-webkit-scrollbar {
+  height: 8px !important; /* Barra de rolagem visível */
+  display: block !important;
+}
+
+.carrossel-horizontal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.carrossel-horizontal::-webkit-scrollbar-thumb {
+  background: #d4af37; /* Cor dourada */
+  border-radius: 10px;
+}
+
+.carrossel-horizontal::-webkit-scrollbar-thumb:hover {
+  background: #b89528;
+}
+
+/* CONTAINER DAS SETAS COM ESPAÇAMENTO SEGURO */
+.carrossel-container-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 10px; /* Cria espaço nas pontas para as setas não serem cortadas */
+}
+
+/* ESTILO E POSICIONAMENTO DAS SETAS */
+.btn-seta {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background-color: #ffffff;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 26px;
+  color: #333333;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20; /* Fica acima das fotos */
+  transition: all 0.2s ease;
+}
+
+.btn-seta:hover {
+  background-color: #d4af37;
+  color: #ffffff;
+}
+
+/* POSICIONA AS SETAS DENTRO DA ÁREA VISÍVEL */
+.seta-esquerda {
+  left: 0px;
+}
+
+.seta-direita {
+  right: 0px;
+}
+
+  /* AJUSTE PARA COMPUTADOR (Aumenta um pouco os cards em telas maiores) */
+  @media (min-width: 768px) {
+
+      .btn-seta {
+    display: none;
+    }
+    .carrossel-horizontal .box {
+      flex: 0 0 250px !important;
+      width: 250px !important;
+    }
+    .carrossel-horizontal .box img {
+      height: 180px !important;
+    }
+  }

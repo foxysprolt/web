@@ -1,23 +1,38 @@
 [
   {
-    "id": 1,
-    "nome": "Buquê de 12 Rosas Vermelhas",
-    "preco": "R$ 150,00",
-    "imagem": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=400",
-    "link": "https://wa.me/5511999999999?text=Quero%20o%20Buque%20de%20Rosas"
+    "id": "buque-campo",
+    "nome": "Buquê Flores do Campo",
+    "preco": "R$ 199,90",
+    "categoria": "buques",
+    "bestseller": true,
+    "imagem": "../assets/flores/buque_de_flores_do_campo-1024x1024.webp",
+    "descricao": "Arranjo exclusivo composto por gérberas, margaridas e folhagens nobres selecionadas a dedo."
   },
   {
-    "id": 2,
-    "nome": "Orquídea Phalaenopsis Branca",
-    "preco": "R$ 120,00",
-    "imagem": "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?w=400",
-    "link": "https://wa.me/5511999999999?text=Quero%20a%20Orquidea"
+    "id": "rosas-vermelhas",
+    "nome": "Buquê 12 Rosas Vermelhas",
+    "preco": "R$ 180,00",
+    "categoria": "buques",
+    "bestseller": true,
+    "imagem": "../assets/flores/buque_de_flores_do_campo-1024x1024.webp",
+    "descricao": "O clássico símbolo do amor. 12 rosas vermelhas importadas em uma embalagem acetinada de luxo."
   },
   {
-    "id": 3,
-    "nome": "Cesta de Café com Flores",
+    "id": "cesta-cafe",
+    "nome": "Cesta de Café da Manhã",
+    "preco": "R$ 250,00",
+    "categoria": "presentes",
+    "bestseller": true,
+    "imagem": "../assets/flores/buque_de_flores_do_campo-1024x1024.webp",
+    "descricao": "Cesta completa com pães artesanais, geleias, frutas frescas e um mini vaso de orquídea."
+  },
+  {
+    "id": "orquidea-chocolates",
+    "nome": "Orquídea com Chocolates",
     "preco": "R$ 210,00",
-    "imagem": "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=400",
-    "link": "https://wa.me/5511999999999?text=Quero%20a%20Cesta"
+    "categoria": "presentes",
+    "bestseller": true,
+    "imagem": "../assets/flores/buque_de_flores_do_campo-1024x1024.webp",
+    "descricao": "Orquídea Phalaenopsis no vaso acompanhada de caixa de bombons artesanais."
   }
 ]

@@ -6,6 +6,7 @@
     justify-content: center;
     color: white;
     padding: 20px;
+ 
 }
 
 .hero h2 {
@@ -13,12 +14,15 @@
     background: linear-gradient(45deg, #BF953F, #FCF6BA, #AA771C);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 
 .hero h3 {
     font-size: 1.2rem;
     margin: 15px 0;
+    
 }
+
 
 .hero button {
     width: 200px;
@@ -29,6 +33,12 @@
     border: none;
     border-radius: 10px;
     transition: 0.25s;
+    
+    
+}
+
+a, .seu-botao {
+  text-decoration: none;
 }
 
 .hero button:hover {
