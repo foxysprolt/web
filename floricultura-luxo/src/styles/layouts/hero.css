@@ -48,6 +48,12 @@ a, .seu-botao {
 
 }
 
+/* Localize a classe do botão principal */
+.btn-primary, .hero-btn, button {
+    color: #ffffff !important; /* Força o texto para branco */
+}
+
+
 /* desktop */
 @media (min-width: 768px) {
     .hero {
