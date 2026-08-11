@@ -11,6 +11,14 @@ header.header-melin {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
+.logo img, header img {
+    max-width: 120px; /* Ajuste este valor se quiser maior ou menor */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
