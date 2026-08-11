@@ -11,6 +11,13 @@
   gap: 40px;
   align-items: start;
 }
+/* No CSS da página de produto */
+.product-container, .breadcrumb-section {
+    margin-top: 20px; /* Cria espaço abaixo da barra de pesquisa */
+    position: relative;
+    z-index: 10; /* Garante que fique acima de outros elementos */
+}
+
 
 @media (min-width: 768px) {
   .secao-produto-detalhe {
