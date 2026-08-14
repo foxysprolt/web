@@ -33,25 +33,16 @@
     border: none;
     border-radius: 10px;
     transition: 0.25s;
+    text-decoration: none;
     
     
-}
-
-a, .seu-botao {
-  text-decoration: none;
-}
 
 .hero button:hover {
     background: linear-gradient(25deg, #d4ae32, #ffe883);
     cursor: pointer;
     transform: scale(1.05);
 
-}
 
-/* Localize a classe do botão principal */
-.btn-primary, .hero-btn, button {
-    color: #ffffff !important; /* Força o texto para branco */
-}
 
 
 /* desktop */
