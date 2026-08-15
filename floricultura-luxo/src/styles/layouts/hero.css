@@ -11,7 +11,7 @@
 
 .hero h2 {
     font-size: 2rem;
-    background: linear-gradient(45deg, #BF953F, #FCF6BA, #AA771C);
+    background:linear-gradient(45deg, #8c6d1f, #f7e7a1) ;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
@@ -37,6 +37,7 @@
 
 .hero a {
     text-decoration:none ;
+    color:azure ;
 }
 
 .hero button:hover {
@@ -60,4 +61,12 @@
     .hero h3 {
         font-size: 1.6rem;
     }
+
+    .hero h2 {
+    font-size: 2rem;
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #AA771C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
 }
