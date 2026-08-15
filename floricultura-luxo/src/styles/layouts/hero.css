@@ -33,16 +33,18 @@
     border: none;
     border-radius: 10px;
     transition: 0.25s;
-    text-decoration: none;
-    
-    
+}
+
+.hero a {
+    text-decoration:none ;
+}
 
 .hero button:hover {
     background: linear-gradient(25deg, #d4ae32, #ffe883);
     cursor: pointer;
     transform: scale(1.05);
 
-
+}
 
 
 /* desktop */

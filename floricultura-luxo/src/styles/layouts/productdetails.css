@@ -4,7 +4,7 @@
 
 .secao-produto-detalhe {
   max-width: 1200px;
-  margin: 130px auto 60px auto; /* Espaço para não ficar sob o Header fixo */
+  margin: 150px auto 60px auto; /* Espaço para não ficar sob o Header fixo */
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr;

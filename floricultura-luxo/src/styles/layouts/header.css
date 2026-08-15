@@ -1,5 +1,5 @@
 /* ==========================================
-   HEADER CORRIGIDO (TUDO NA MESMA LINHA)
+   HEADER CORRIGIDO (MENU 100% NO CENTRO)
    ========================================== */
 header.header-melin {
   position: fixed;
@@ -11,41 +11,42 @@ header.header-melin {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-.logo img, header img {
-    max-width: 120px; /* Ajuste este valor se quiser maior ou menor */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-
+/* CONTAINER PRINCIPAL: GRID DE 3 COLUNAS PERFEITAS */
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 20px;
-  display: flex;
-  flex-direction: row; /* Força ficar tudo lado a lado */
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: space-between; /* Logo na esquerda, Menu no centro, Busca na direita */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* Coluna 1 e 3 têm o mesmo tamanho, Coluna 2 (menu) fica no meio */
+  align-items: center;
   gap: 15px;
 }
 
-/* Logo alinhada sem cortar */
+/* 1. LOGO (ALINHADA À ESQUERDA) */
 .logo-link {
   display: flex;
   align-items: center;
+  justify-self: start; /* Trava na ponta esquerda da coluna 1 */
 }
 
-.headerlogo {
+.headerlogo, 
+.logo img, 
+header img {
+  max-width: 120px;
   height: 38px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
-/* Menu de navegação */
+/* 2. MENU DE NAVEGAÇÃO (TRAVADO NO CENTRO ABSOLUTO) */
+header.header-melin nav {
+  justify-self: center; /* Trava no meio da coluna 2 */
+}
+
 header.header-melin nav ul {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -65,12 +66,11 @@ header.header-melin nav ul li a:hover {
   opacity: 0.8;
 }
 
-/* ==========================================
-   CAIXA DE PESQUISA & DROPDOWN SUSPENSO
-   ========================================== */
+/* 3. CAIXA DE PESQUISA (ALINHADA À DIREITA) */
 .search-box {
   position: relative;
-  width: 220px; /* Tamanho fixo para não empurrar o menu */
+  width: 220px;
+  justify-self: end; /* Trava na ponta direita da coluna 3 */
   flex-shrink: 0;
 }
 
@@ -90,7 +90,9 @@ header.header-melin nav ul li a:hover {
   box-shadow: 0 0 8px rgba(233, 30, 99, 0.15);
 }
 
-/* Dropdown de Resultados */
+/* ==========================================
+   DROPDOWN SUSPENSO DA BUSCA
+   ========================================== */
 .resultados-dropdown {
   position: absolute;
   top: 115%;
@@ -162,12 +164,32 @@ header.header-melin nav ul li a:hover {
 }
 
 /* ==========================================
-   AJUSTES PARA CELULAR (Telas menores que 768px)
+   ANIMAÇÃO E AJUSTES PARA CELULAR (MOBILE)
    ========================================== */
+.logo-link,
+.headerlogo, 
+.logo img {
+  transition: 
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.3s ease,
+    max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    margin 0.4s ease,
+    filter 0.3s ease !important;
+  will-change: transform, opacity, max-height, filter;
+  transform-origin: top center;
+  max-height: 80px;
+}
+
 @media (max-width: 767px) {
   .header-container {
-    flex-direction: column; /* No celular empilha pra caber tudo */
+    display: flex; /* No celular volta para flex empilhado */
+    flex-direction: column;
     padding: 10px 15px;
+  }
+
+  .logo-link {
+    justify-self: center;
+    margin: 0 auto;
   }
 
   .search-box {
@@ -178,5 +200,18 @@ header.header-melin nav ul li a:hover {
   .resultados-dropdown {
     width: 100%;
     left: 0;
+  }
+
+  /* Estado quando a logo esconde no scroll do celular */
+  .logo-escondida {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    transform: translateY(-10px) scale(0.85) !important;
+    filter: blur(4px) !important;
+    pointer-events: none !important;
   }
 }

@@ -45,3 +45,36 @@ function rolarCarrossel(idGaleria, direcao) {
 }
 
 document.addEventListener('DOMContentLoaded', carregarProdutosHome);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  let ultimoScroll = 0;
+  
+  // Seleciona o elemento da logo
+  const logo = document.querySelector('.logo') || document.querySelector('.top-bar-logo') || document.querySelector('header img');
+
+  if (!logo) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) {
+      const scrollAtual = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Se estiver bem no topo da página, mantém a logo visível
+      if (scrollAtual <= 15) {
+        logo.classList.remove('logo-escondida');
+        return;
+      }
+
+      // Cria uma margem de tolerância (só aciona se rolar mais de 8px)
+      if (Math.abs(scrollAtual - ultimoScroll) < 8) return;
+
+      // Roolou pra baixo -> Esconde a logo de forma fluida
+      if (scrollAtual > ultimoScroll && scrollAtual > 40) {
+        logo.classList.add('logo-escondida');
+      } 
+      ultimoScroll = scrollAtual;
+    } else {
+      logo.classList.remove('logo-escondida');
+    }
+  }, { passive: true }); // passive: true melhora a taxa de FPS e fluidez do scroll no celular
+});

@@ -22,7 +22,7 @@
     "nome": "Cesta de Café da Manhã",
     "preco": "R$ 250,00",
     "categoria": "presentes",
-    "bestseller": true,
+    "bestseller": false,
     "imagem": "../assets/flores/buque_de_flores_do_campo-1024x1024.webp",
     "descricao": "Cesta completa com pães artesanais, geleias, frutas frescas e um mini vaso de orquídea."
   },
@@ -31,7 +31,7 @@
     "nome": "Orquídea com Chocolates",
     "preco": "R$ 210,00",
     "categoria": "presentes",
-    "bestseller": true,
+    "bestseller": false,
     "imagem": "../assets/flores/buque_de_flores_do_campo-1024x1024.webp",
     "descricao": "Orquídea Phalaenopsis no vaso acompanhada de caixa de bombons artesanais."
   }
