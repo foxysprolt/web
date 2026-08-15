@@ -87,7 +87,7 @@
     border-radius: 20px;
     width: 45%;
     max-height: 100%;
-    padding: 10%;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,20 +96,19 @@
 }
 
 .wrapper .box img {
-    max-width: 80%;
-    object-fit: cover;
+    max-width: 100%;
+    object-fit: contain;
     border-radius: 12px;
 }
 
 .wrapper .box h3 {
-    margin-top: 100%;
 
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: #333;
 }
 
 .wrapper .box h2 {
-    font-size: 0.60rem;
+    font-size: 0.65rem;
     color: #777;
 }
 .wrapper {
