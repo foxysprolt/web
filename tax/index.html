@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JeTax TÁXI — Transfer Executivo em São Paulo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============================================
+           TOKENS & VARIÁVEIS
+           ============================================ */
+        :root {
+            --bg: #0b0e13;
+            --bg-soft: #10141b;
+            --card: #141922;
+            --line: #232a37;
+            --line-soft: #1a2029;
+
+            --amber: #c68a34;
+            --amber-bright: #e3a94d;
+            --amber-soft: rgba(198, 138, 52, 0.14);
+
+            --steel: #8a9bb0;
+            --steel-soft: rgba(92, 113, 134, 0.16);
+
+            --text: #eceef2;
+            --text-muted: #9da5b5;
+            --text-faint: #545c6c;
+
+            --whatsapp: #25d366;
+            --whatsapp-dark: #1eb857;
+
+            --serif: 'Fraunces', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --mono: 'IBM Plex Mono', 'Courier New', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        :focus-visible {
+            outline: 2px solid var(--amber-bright);
+            outline-offset: 3px;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(11, 14, 19, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+
+        .logo .dot { color: var(--amber); font-family: var(--sans); }
+        .logo small {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            color: var(--text-faint);
+            text-transform: uppercase;
+        }
+
+        nav ul { display: flex; gap: 32px; }
+
+        nav a {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+        nav a:hover { color: var(--amber-bright); }
+
+        .btn-amber {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--amber);
+            color: #0b0e13;
+            font-weight: 700;
+            padding: 11px 22px;
+            border-radius: 3px;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            transition: background 0.2s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-amber:hover { background: var(--amber-bright); transform: translateY(-1px); color: #0b0e13; }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 5% 70px;
+            background:
+                linear-gradient(to right, rgba(11, 14, 19, 0.95) 30%, rgba(11, 14, 19, 0.75)),
+                url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--amber);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 {
+            font-family: var(--serif);
+            font-size: 3.2rem;
+            font-weight: 600;
+            line-height: 1.18;
+            margin-bottom: 22px;
+            color: #fff;
+            max-width: 620px;
+        }
+        .hero-text h1 em {
+            font-style: normal;
+            color: var(--amber-bright);
+        }
+
+        .hero-text > p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 34px;
+            max-width: 540px;
+        }
+
+        .route-strip {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            padding-top: 22px;
+            border-top: 1px dashed var(--line);
+            max-width: 560px;
+        }
+        .route-item { color: var(--text-muted); }
+        .route-item strong {
+            color: var(--amber-bright);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .route-sep { color: var(--text-faint); }
+        .route-live {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+        .pulse-dot {
+            width: 7px; height: 7px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+
+        /* ============================================
+           TICKET CARD
+           ============================================ */
+        .ticket-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 28px 30px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+        }
+
+        .ticket-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .ticket-brand-name {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+            display: block;
+        }
+        .ticket-brand-sub {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            color: var(--amber);
+            text-transform: uppercase;
+        }
+
+        .ticket-serial {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--text-faint);
+            text-align: right;
+            line-height: 1.5;
+        }
+        .ticket-barcode {
+            width: 56px;
+            height: 22px;
+            margin-top: 6px;
+            margin-left: auto;
+            background: repeating-linear-gradient(90deg, var(--text-faint) 0 2px, transparent 2px 5px);
+            opacity: 0.55;
+        }
+
+        .ticket-card > p.ticket-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+        }
+
+        .form-group { margin-bottom: 15px; }
+
+        .form-group label {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-faint);
+            margin-bottom: 7px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            color: #666666;
+            font-family: var(--sans);
+            font-size: 0.92rem;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus { outline: none; border-color: var(--amber); }
+
+        .ticket-perforation {
+            position: relative;
+            height: 0;
+            border-top: 1.5px dashed var(--line);
+            margin: 22px -30px 20px;
+        }
+        .ticket-perforation::before,
+        .ticket-perforation::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            width: 20px; height: 20px;
+            background: var(--bg);
+            border-radius: 50%;
+        }
+        .ticket-perforation::before { left: -10px; }
+        .ticket-perforation::after { right: -10px; }
+
+        .btn-whatsapp-submit {
+            width: 100%;
+            background: var(--whatsapp);
+            color: #08130d;
+            font-weight: 700;
+            padding: 14px;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.2s ease;
+        }
+        .btn-whatsapp-submit:hover { background: var(--whatsapp-dark); }
+
+        /* ============================================
+           SECTIONS
+           ============================================ */
+        .section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title { margin-bottom: 54px; max-width: 640px; }
+        .section-title h2 {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-top: 12px;
+        }
+
+        /* ============================================
+           DIFERENCIAIS
+           ============================================ */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .feature-card {
+            background: var(--bg);
+            padding: 36px 28px;
+            transition: background 0.2s ease;
+        }
+        .feature-card:hover { background: var(--bg-soft); }
+
+        .feature-tag {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--amber);
+            border: 1px solid var(--amber-soft);
+            background: var(--amber-soft);
+            padding: 4px 9px;
+            border-radius: 2px;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        /* ============================================
+           SERVIÇOS
+           ============================================ */
+        .service-list { border-top: 1px solid var(--line); }
+        .service-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 4px;
+            border-bottom: 1px solid var(--line);
+        }
+        .service-arrow {
+            font-family: var(--mono);
+            color: var(--amber);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .service-row h3 {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #fff;
+            min-width: 260px;
+        }
+        .service-row p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* ============================================
+           FROTA
+           ============================================ */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .fleet-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .fleet-card:hover { 
+            border-color: var(--amber-soft);
+            transform: translateY(-2px);
+        }
+
+        .fleet-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .fleet-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .fleet-card:hover .fleet-img {
+            filter: brightness(1);
+            transform: scale(1.03);
+        }
+
+        .fleet-info { padding: 26px; }
+
+        .fleet-tag {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+            color: var(--steel);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .fleet-info h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .fleet-info p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .fleet-specs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-top: 1px dashed var(--line);
+            padding-top: 16px;
+        }
+        .spec-chip {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            border: 1px solid var(--line);
+            padding: 5px 10px;
+            border-radius: 2px;
+        }
+
+        /* ============================================
+           CTA BANNER
+           ============================================ */
+        .cta-banner {
+            background:
+                linear-gradient(rgba(11, 14, 19, 0.88), rgba(11, 14, 19, 0.88)),
+                url('https://images.unsplash.com/photo-1508873696983-2df515122519?q=80&w=1920&auto=format&fit=crop') center/cover fixed;
+            padding: 100px 5%;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .cta-content { max-width: 640px; margin: 0 auto; text-align: left; }
+        .cta-content h2 {
+            font-family: var(--serif);
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .cta-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer { background: #07090c; border-top: 1px solid var(--line); padding: 64px 5% 30px; }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--amber);
+            display: inline-block;
+        }
+
+        .footer-col p, .footer-col li { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: var(--amber-bright); }
+        .footer-col i { color: var(--amber); width: 16px; margin-right: 4px; }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid var(--line);
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--text-faint);
+        }
+
+        /* ============================================
+           FLOATING WHATSAPP
+           ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px; right: 28px;
+            width: 58px; height: 58px;
+            background-color: var(--whatsapp);
+            color: #08130d;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+            z-index: 1000;
+            transition: transform 0.2s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.08); }
+
+        /* RESPONSIVO */
+        @media (max-width: 992px) {
+            .hero-container { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2.3rem; }
+            nav { display: none; }
+            .service-row { flex-wrap: wrap; }
+            .service-row h3 { min-width: 100%; }
+        }
+        @media (max-width: 560px) {
+            .ticket-card { padding: 24px 20px; }
+            .ticket-perforation { margin-left: -20px; margin-right: -20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            JeTax <span class="dot">·</span> TÁXI
+            <small>SP</small>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Diferenciais</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#frota">Frota</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/5511991975369" target="_blank" class="btn-amber">Agendar agora</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="eyebrow">Transfer particular — São Paulo</span>
+                <h1>Seu voo pousa. <em>Seu carro já está lá.</em></h1>
+                <p>Motorista particular para embarques e desembarques em Viracopos, Guarulhos e Congonhas — e para as reuniões, jantares e eventos que vêm depois. Um carro, um motorista, do início ao fim da corrida.</p>
+
+                <div class="route-strip">
+                    <span class="route-item"><strong>VCP</strong> Viracopos</span>
+                    <span class="route-sep">•</span>
+                    <span class="route-item"><strong>GRU</strong> Guarulhos</span>
+                    <span class="route-sep">•</span>
+                    <span class="route-item"><strong>CGH</strong> Congonhas</span>
+                    <span class="route-live"><span class="pulse-dot" aria-hidden="true"></span> Operação 24h</span>
+                </div>
+            </div>
+
+            <!-- TICKET CARD / FORM -->
+            <div class="ticket-card">
+                <div class="ticket-head">
+                    <div>
+                        <span class="ticket-brand-name">Solicitar orçamento</span>
+                        <span class="ticket-brand-sub">Transfer pass</span>
+                    </div>
+                    <div class="ticket-serial">
+                        Nº AMT–0426
+                        <div class="ticket-barcode" aria-hidden="true"></div>
+                    </div>
+                </div>
+                <p class="ticket-desc">Preencha a rota abaixo e receba o valor exato pelo WhatsApp em minutos.</p>
+
+                <form id="quoteForm" onsubmit="sendToWhatsApp(event)">
+                    <div class="form-group">
+                        <label for="categoria">Categoria do veículo</label>
+                        <select id="categoria" class="form-control" required>
+                            <option value="Sedan Executivo">Sedan Executivo (Virtus)</option>
+                            <option value="SUV / Minivan">SUV / Minivan (Spin)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="origem">Origem</label>
+                        <input type="text" id="origem" class="form-control" placeholder="Ex: Aeroporto de Viracopos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destino">Destino</label>
+                        <input type="text" id="destino" class="form-control" placeholder="Ex: São Paulo, capital" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataHora">Data e horário</label>
+                        <input type="datetime-local" id="dataHora" class="form-control" required>
+                    </div>
+
+                    <div class="ticket-perforation" aria-hidden="true"></div>
+
+                    <button type="submit" class="btn-whatsapp-submit">
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Solicitar via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="section" id="sobre">
+        <div class="section-title">
+            <h2>Por que empresas fecham com a JeTax Táxi</h2>
+            <p>Nada aqui é sobre luxo por luxo — é sobre não perder um voo, uma reunião ou uma noite de sono por causa do trânsito de São Paulo.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-tag">Equipe · Dedicada</span>
+                <h3>Motorista fixo, não terceirizado</h3>
+                <p>O mesmo profissional do início ao fim da corrida, de terno, sem paradas para outros passageiros no caminho.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-tag">GRU · VCP · CGH</span>
+                <h3>Chegada monitorada por voo</h3>
+                <p>Acompanhamos o status do seu voo em tempo real. Se atrasar, o motorista já sabe e ajusta o horário sem custo extra.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-tag">Rota · Planejada</span>
+                <h3>Trajeto calculado antes de sair</h3>
+                <p>Rota definida com antecedência considerando trânsito e obras, para chegar no horário combinado mesmo com imprevisto.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-tag">Vistoria · A cada corrida</span>
+                <h3>Carro revisado, não só lavado</h3>
+                <p>Frota nova, higienizada entre atendimentos e com manutenção preventiva registrada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="section" id="servicos">
+        <div class="section-title">
+            <h2>O que fazemos</h2>
+        </div>
+        <div class="service-list">
+            <div class="service-row">
+                <span class="service-arrow">→</span>
+                <h3>Transfer para aeroportos</h3>
+                <p>Viracopos, Guarulhos e Congonhas, com monitoramento de voo incluso.</p>
+            </div>
+            <div class="service-row">
+                <span class="service-arrow">→</span>
+                <h3>Viagens corporativas</h3>
+                <p>Deslocamento entre reuniões, escritórios e clientes em São Paulo.</p>
+            </div>
+            <div class="service-row">
+                <span class="service-arrow">→</span>
+                <h3>Veículo à disposição</h3>
+                <p>Motorista e carro reservados por diária ou por hora, para agendas com múltiplas paradas.</p>
+            </div>
+            <div class="service-row">
+                <span class="service-arrow">→</span>
+                <h3>Eventos e congressos</h3>
+                <p>Transporte para grupos em feiras, jantares corporativos e eventos com horário fechado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FROTA COM IMAGENS VIA URL -->
+    <section class="section" id="frota">
+        <div class="section-title">
+            <h2>Veículos para cada tipo de corrida</h2>
+        </div>
+        <div class="fleet-grid">
+            <!-- SUV / Minivan -->
+            <div class="fleet-card">
+                <div class="fleet-img-wrapper">
+                    <img src="img/spin.jpg" alt="SUV Executivo JeTax Táxi" class="fleet-img">
+                </div>
+                <div class="fleet-info">
+                    <span class="fleet-tag">SUV / Minivan</span>
+                    <h3>Grupo &amp; bagagem extra</h3>
+                    <p>Ideal para equipes corporativas, famílias ou quem viaja com volume extra de mala.</p>
+                    <div class="fleet-specs">
+                        <span class="spec-chip">6 lugares</span>
+                        <span class="spec-chip">Porta-malas amplo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sedan Executivo -->
+            <div class="fleet-card">
+                <div class="fleet-img-wrapper">
+                    <img src="img/vir.jpg" alt="Sedan Executivo JeTax Táxi" class="fleet-img">
+                </div>
+                <div class="fleet-info">
+                    <span class="fleet-tag">Sedan executivo</span>
+                    <h3>Reunião &amp; transfer individual</h3>
+                    <p>Perfeito para viagens de negócios e transfers com foco em conforto e discrição.</p>
+                    <div class="fleet-specs">
+                        <span class="spec-chip">4 lugares</span>
+                        <span class="spec-chip">Ar climatizado</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eventos & Noturno -->
+            <div class="fleet-card">
+                <div class="fleet-img-wrapper">
+                    <img src="img/2car.jpg" alt="Veículo luxo para eventos noturnos" class="fleet-img">
+                </div>
+                <div class="fleet-info">
+                    <span class="fleet-tag">Eventos &amp; noturno</span>
+                    <h3>Hotéis, jantares e voos fora de hora</h3>
+                    <p>Prontidão para eventos corporativos, hotéis de luxo e horários de voo especiais.</p>
+                    <div class="fleet-specs">
+                        <span class="spec-chip">Agendamento 24h</span>
+                        <span class="spec-chip">Pix / cartão / faturado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner" id="contato">
+        <div class="cta-content">
+            <span class="eyebrow">Próxima corrida</span>
+            <h2>Seu próximo voo já tem motorista?</h2>
+            <p>Reserve com antecedência e chegue sem correria — a gente cuida do trânsito, você cuida da reunião.</p>
+            <a href="https://wa.me/5511991975369" target="_blank" class="btn-amber">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar com atendente
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px; font-size: 1.15rem;">
+                    JeTax <span class="dot">·</span> TÁXI
+                </div>
+                <p>Transfer executivo, receptivo em aeroportos e viagens de alto padrão em São Paulo, região metropolitana.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#servicos">Transfer para aeroportos</a></li>
+                    <li><a href="#servicos">Viagens corporativas</a></li>
+                    <li><a href="#servicos">Veículo à disposição</a></li>
+                    <li><a href="#servicos">Eventos e congressos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <p><i class="fa-solid fa-phone" aria-hidden="true"></i> (11) 99197-5369</p>
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> contato@amtaxi.com.br</p>
+                <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> São Paulo &amp; região metropolitana</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 JeTax Táxi Executivo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511991975369" class="whatsapp-float" target="_blank" aria-label="Chamar no WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const categoria = document.getElementById('categoria').value;
+            const origem = document.getElementById('origem').value;
+            const destino = document.getElementById('destino').value;
+            const dataHora = document.getElementById('dataHora').value;
+
+            const text = `Olá! Gostaria de solicitar um orçamento:\n\n` +
+                         `*Categoria:* ${categoria}\n` +
+                         `*Origem:* ${origem}\n` +
+                         `*Destino:* ${destino}\n` +
+                         `*Data/Hora:* ${dataHora}`;
+
+            const phone = "5511991975369";
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
