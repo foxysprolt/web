@@ -2,7 +2,7 @@ let botao = document.querySelector(".botao-ajuda")
 let input = document.querySelector(".caixa-texto")
 let chat = document.querySelector("#chat")
 
-let urlServidor = "https://southamerica-east1-ochamado-ia.cloudfunctions.net/chat_ochamado"
+let urlServidor = "https://chat-ochamado-549878631100.southamerica-east1.run.app"
 
 let historico = [
     {
