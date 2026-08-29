@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 # ── Constantes ─────────────────────────────────────────────────────────────────
 AWS_API_BASE = "https://8akkoikdg5.execute-api.us-east-2.amazonaws.com/Prod/charge_info/"
-MODEL_NAME   = "gemini-flash-latest"
+MODEL_NAME = "gemini-2.5-flash-lite"
 
 # ESP: 12 chars alfanuméricos com pelo menos 2 dígitos
 ESP_PATTERN = re.compile(r'\b(?=[A-Z0-9]*[0-9][A-Z0-9]*[0-9])[A-Z0-9]{12}\b')
@@ -282,7 +282,6 @@ def chat_ochamado(request):
         config_conversa = types.GenerateContentConfig(
             system_instruction=instrucao_com_gatilho,
             temperature=0.4,
-            thinking_config=types.ThinkingConfig(thinking_level="MEDIUM"),
         )
         completion = client.models.generate_content(
             model=MODEL_NAME,
